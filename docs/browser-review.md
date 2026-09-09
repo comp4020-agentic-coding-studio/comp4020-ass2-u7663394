@@ -39,3 +39,11 @@ The first slide audit also measured before the hash-change event settled. It was
 Run `pnpm check`, start `pnpm preview --port 4322`, and read the printed port. In Chrome, set the exact viewports above. Start from the home page, use the mobile menu to reach Twelve weeks, search for Pinia, open the lecture, and follow its deck link. Step through all seven slides; focus Next and use Space and Enter once each. Resize on slide 4 and verify it stays on slide 4. Repeat the main reading path with JavaScript disabled. Check console messages after the interactions.
 
 No public deployment is claimed: the repository was private and the Pages endpoint returned 404 when inspected. Pushing and publication are reserved for the student by the repository instructions.
+
+## UI redesign review — 9 September 2026
+
+The redesign kept the course content and routes, then changed the shared reading system. Slop gold remains the institutional colour; Vue green now carries curriculum phase, ownership paths and primary actions. The homepage architecture diagram uses actual Vue and TypeScript marks, while the weekly, studio and assessment indexes use purpose-specific icons and progression structures instead of the same card repeated everywhere.
+
+A browser pass found the assessment composition was still constrained by the generic 72-character prose measure. At desktop this made the intended asymmetric layout occupy only half the available content width. The assessment and studio grids now opt out explicitly; their prose keeps its own readable line length. A second inspection found CSS-generated `/` characters in accessible heading names such as `/Scope`. The decorative character was replaced with a border so the visible hierarchy remains but the heading name is unchanged.
+
+The fresh route sweep visited all 48 authored routes at 390×844 and 1920×1080: 96 combinations with no document overflow, console errors, failed responses or missing main/deck surface. Targeted screenshots covered the homepage, curriculum map, week 9 lecture, assessment overview, Assignment 2 and week 9 deck. The mobile menu expanded, the search dialog opened, and the actual theme control produced a readable dark homepage. In the deck toolbar, one Next click changed slide 1 to 2 and one focused Space activation changed slide 2 to 3, confirming one action per input after the visual changes.

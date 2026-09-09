@@ -5,8 +5,8 @@ import RelatedContent from "astro-course-university/components/RelatedContent.as
 import SpecList from "astro-course-university/components/SpecList.astro";
 import ContentLayout from "../../layouts/CourseLayout.astro";
 import TeachingTeam from "../../components/TeachingTeam.astro";
-import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, sessionLabels, siteConfig } from "../../site-config";
+import WeekSignal from "../../components/WeekSignal.astro";
 
 export async function getStaticPaths() {
   const sessions = await getPublishedCollection("sessions");
@@ -22,8 +22,8 @@ const { Content } = await render(session);
   description={session.data.description}
   {...siteConfig}
 >
-  <p><strong>{formatCourseDate(session.data.date)}</strong></p>
-  <Content />
+  <WeekSignal week={session.data.week} phase="Friday studio" date={session.data.date} />
+  <article class="course-prose"><Content /></article>
   <SpecList spec={session.data.spec}>
     What you bring to the session. Written so a reader can tell whether it has
     been met without asking you.

@@ -5,8 +5,8 @@ import RelatedContent from "astro-course-university/components/RelatedContent.as
 import ContentLayout from "../../layouts/CourseLayout.astro";
 import { withBase } from "astro-theme-university/url";
 import TeachingTeam from "../../components/TeachingTeam.astro";
-import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, siteConfig } from "../../site-config";
+import WeekSignal from "../../components/WeekSignal.astro";
 
 export async function getStaticPaths() {
   const lectures = await getPublishedCollection("lectures");
@@ -22,10 +22,9 @@ const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
 ---
 
 <ContentLayout title={title} description={lecture.data.description} {...siteConfig}>
-  <p class="course-meta"><span>{formatCourseDate(lecture.data.date)}</span><span>{String(lecture.data.phase)}</span></p>
-  {lecture.data.slides && <p><a href={withBase(lecture.data.slides)}>Open the slides</a></p>}
+  <WeekSignal week={lecture.data.week} phase={String(lecture.data.phase)} date={lecture.data.date} slides={lecture.data.slides ? withBase(lecture.data.slides) : undefined} />
   <div class="flow-strip" aria-label="This week's ownership path">{(lecture.data.flow as string[]).map((step,index)=><>{index>0 && <b aria-hidden="true">→</b>}<span>{step}</span></>)}</div>
-  <Content />
+  <article class="course-prose"><Content /></article>
   <TeachingTeam teachers={lecture.data.teachers} />
   <nav class="week-nav" aria-label="Week navigation">{previous && <a href={withBase(`/lectures/${previous.id}/`)}>← Week {previous.data.week}: {previous.data.title}</a>}{next && <a href={withBase(`/lectures/${next.id}/`)}>Week {next.data.week}: {next.data.title} →</a>}</nav>
   <RelatedContent entry={lecture} collections={graphCollections} />

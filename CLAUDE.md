@@ -580,3 +580,6 @@ These rules implement IDEA.md, rather than treating the course as a list of APIs
 - Deck controls sit outside Reveal’s scaled canvas. Phone slides use a readable portrait surface; verify all slides after changing deck CSS. A compiled landscape slide is not evidence of mobile readability.
 
 - A deck button’s Space/Enter belongs to native activation, not Reveal’s document shortcut. Stop propagation within the toolbar, preserve the default, and assert one slide advance per key press. A hash mutation alone is not a settled slide; wait for its visible section and counter before measuring.
+- Keep Slop gold as the institutional anchor and use Vue green to show curriculum phase, state ownership and primary action. Serif body copy and sans-serif headings stay as the course's editorial/code contrast; icons and logos must identify a real tool, action or relationship.
+- Curriculum maps, assessment compositions and studio grids explicitly opt out of the prose measure. At phone width they stack in reading order rather than shrinking their text or hiding overflow.
+- Decorative marks must not change an accessible name. Do not use generated punctuation as heading content: a browser snapshot exposed `/Scope` to the accessibility tree. Use borders or empty backgrounds for those marks.

@@ -4,6 +4,7 @@ import { withBase } from 'astro-theme-university/url';
 import { courseMeta } from '../course-config';
 import { siteConfig } from '../site-config';
 import { formatCourseDate } from '../lib/dates';
+import TechMark from '../components/TechMark.astro';
 import '../styles/course.css';
 ---
 <BaseLayout title={`${courseMeta.code}: ${courseMeta.title}`} description={courseMeta.description} {...siteConfig}>
@@ -18,9 +19,9 @@ import '../styles/course.css';
     </div>
     <figure class="architecture">
       <figcaption>One question, three applications</figcaption>
-      <div class="boundary"><strong>01 / The reader</strong><small>Vue 2<br />Who owns state?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
-      <div class="boundary"><strong>02 / The editorial desk</strong><small>Vue 3<br />What survives migration?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
-      <div class="boundary"><strong>03 / The consultation</strong><small>Vue 3 + TS<br />What makes change safe?</small></div>
+      <div class="boundary"><strong>01 / The reader</strong><small><TechMark kind="vue" label="Vue 2" />Who owns state?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
+      <div class="boundary"><strong>02 / The editorial desk</strong><small><TechMark kind="vue" label="Vue 3" />What survives migration?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
+      <div class="boundary"><strong>03 / The consultation</strong><small><TechMark kind="ts" label="Vue + TS" />What makes change safe?</small></div>
       <p class="diagram-note">Components → shared boundaries → typed contracts.<br />The application grows. The ownership must stay legible.</p>
     </figure>
   </section>

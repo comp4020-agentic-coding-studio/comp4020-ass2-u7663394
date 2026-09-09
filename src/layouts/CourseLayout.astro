@@ -3,5 +3,12 @@ import ContentLayout from 'astro-theme-university/layouts/ContentLayout.astro';
 import type { ContentLayoutProps } from 'astro-theme-university/layouts/ContentLayout.astro';
 import '../styles/course.css';
 type Props = ContentLayoutProps;
+const props = Astro.props as Props;
+const section = Astro.url.pathname.split('/').filter(Boolean).at(-2) ?? 'page';
+const supplied = props.mainAttrs as Record<string, unknown> | undefined;
+const mainAttrs = {
+  ...supplied,
+  class: `course-page course-detail course-page--${section} ${String(supplied?.class ?? '')}`.trim(),
+};
 ---
-<ContentLayout {...Astro.props}><slot /></ContentLayout>
+<ContentLayout {...props} mainAttrs={mainAttrs}><slot /></ContentLayout>

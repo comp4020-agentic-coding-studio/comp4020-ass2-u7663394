@@ -1,0 +1,11 @@
+---
+const { kind, label } = Astro.props as { kind: 'vue' | 'ts'; label: string };
+---
+<span class:list={['tech-mark', `tech-mark--${kind}`]}>
+  {kind === 'vue' ? (
+    <svg viewBox="0 0 28 24" aria-hidden="true"><path d="M0 0h6l8 13.5L22 0h6L14 24Z" /><path class="tech-mark-inner" d="M6 0h5l3 5 3-5h5l-8 13.5Z" /></svg>
+  ) : (
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="2" /><path class="tech-mark-inner" d="M5 9h8M9 9v9M14 16.5c.8 1 3.7 1.4 4.4-.1.8-1.8-4.2-1.8-3.7-4 .4-1.5 3.2-1.4 4-.3" /></svg>
+  )}
+  <span>{label}</span>
+</span>

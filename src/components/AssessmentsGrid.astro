@@ -2,7 +2,13 @@
 import { getPublishedCollection } from 'astro-course-university/content';
 import { withBase } from 'astro-theme-university/url';
 import { formatCourseDate } from '../lib/dates';
+import CourseIcon from './CourseIcon.astro';
 const assessments = (await getPublishedCollection('assessments')).sort((a,b)=>a.data.week-b.data.week);
 ---
-<ul class="assessment-list">{assessments.map(a=><li class="assessment-row"><strong class="weight">{a.data.weight}%</strong><div><h2><a href={withBase(`/assessments/${a.id}/`)}>{a.data.title}</a></h2><p>{a.data.description}</p><div class="course-meta"><span>Released {formatCourseDate(String(a.data.release))}</span><span>Due {formatCourseDate(a.data.due)} · 23:59 Canberra</span></div></div></li>)}</ul>
-<p><strong>Total: {assessments.reduce((sum,a)=>sum+a.data.weight,0)}%.</strong> Studios provide formative practice; they add no separate assessment weight.</p>
+<ol class="assessment-list">{assessments.map((a,index)=><li class="assessment-row">
+  <header><span class="assessment-index">Project {String(index+1).padStart(2,'0')}</span><strong class="weight">{a.data.weight}%</strong></header>
+  <div class="assessment-copy"><p class="assessment-phase">{index === 0 ? 'Inherit' : index === 1 ? 'Migrate' : 'Type + verify'}</p><h2><a href={withBase(`/assessments/${a.id}/`)}>{a.data.title}</a></h2><p>{a.data.description}</p></div>
+  <dl><div><dt>Release</dt><dd>{formatCourseDate(String(a.data.release))}</dd></div><div><dt>Deadline</dt><dd>{formatCourseDate(a.data.due)} · 23:59 Canberra</dd></div></dl>
+  <a class="assessment-open" href={withBase(`/assessments/${a.id}/`)}>Read the brief <CourseIcon name="arrow" size={18} /></a>
+</li>)}</ol>
+<div class="assessment-total"><span>Three connected builds</span><strong>{assessments.reduce((sum,a)=>sum+a.data.weight,0)}%</strong><p>Studios provide formative practice; they add no separate assessment weight.</p></div>

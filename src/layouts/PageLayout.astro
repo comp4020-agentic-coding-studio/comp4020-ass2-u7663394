@@ -2,8 +2,17 @@
 import MdxPageLayout from "astro-theme-university/layouts/MdxPageLayout.astro";
 import "../styles/course.css";
 import { siteConfig } from "../site-config";
+
+const section = Astro.url.pathname.split('/').filter(Boolean).at(-1) === 'comp4020-ass2-u7663394'
+  ? 'home'
+  : Astro.url.pathname.split('/').filter(Boolean).at(-1) ?? 'page';
+const pageClass = `course-page course-page--${section}`;
+const frontmatter = {
+  ...(Astro.props.frontmatter ?? {}),
+  mainAttrs: { class: pageClass },
+};
 ---
 
-<MdxPageLayout siteConfig={siteConfig} {...Astro.props}>
+<MdxPageLayout siteConfig={siteConfig} {...Astro.props} frontmatter={frontmatter}>
   <slot />
 </MdxPageLayout>

@@ -2,7 +2,21 @@
 import { getPublishedCollection } from 'astro-course-university/content';
 import { withBase } from 'astro-theme-university/url';
 import { formatCourseDate } from '../lib/dates';
+import CourseIcon from './CourseIcon.astro';
 const lectures = (await getPublishedCollection('lectures')).sort((a,b)=>a.data.week-b.data.week);
-const phases = [{label:'01 / Inherit', detail:'Vue 2 · Own the state before adding another layer.', start:1,end:7},{label:'02 / Migrate',detail:'Vue 3 · Preserve behaviour, reorganise responsibility.',start:8,end:9},{label:'03 / Type and verify',detail:'Vue 3 + TypeScript · Make assumptions explicit.',start:10,end:12}];
+const phases = [
+  {number:'01', label:'Inherit', detail:'Vue 2 · Own the state before adding another layer.', start:1,end:7, icon:'layers'},
+  {number:'02', label:'Migrate',detail:'Vue 3 · Preserve behaviour, reorganise responsibility.',start:8,end:9, icon:'route'},
+  {number:'03', label:'Type and verify',detail:'Vue 3 + TypeScript · Make assumptions explicit.',start:10,end:12, icon:'brackets'},
+] as const;
 ---
-{phases.map(phase => <section aria-label={phase.label}><div class="phase-heading"><h2>{phase.label}</h2><p>{phase.detail}</p></div><ol class="week-map" start={phase.start}>{lectures.filter(l=>l.data.week>=phase.start&&l.data.week<=phase.end).map(l=><li class="week-row"><span class="week-number">{String(l.data.week).padStart(2,'0')}</span><div><h2><a href={withBase(`/lectures/${l.id}/`)}>{l.data.title}</a></h2><p>{String(l.data.question)}</p><div class="course-meta"><span>{formatCourseDate(l.data.date)}</span><span>{String(l.data.buildOutcome)}</span></div></div><div class="week-links"><a href={withBase(`/sessions/${l.id}/`)}>Studio</a><a href={withBase(l.data.slides!)}>Slides ↗</a></div></li>)}</ol></section>)}
+<div class="curriculum-map">
+  {phases.map(phase => <section class="curriculum-phase" aria-label={phase.label}>
+    <header class="phase-heading"><span class="phase-icon"><CourseIcon name={phase.icon} size={28} /></span><div><p>Phase {phase.number} · Weeks {String(phase.start).padStart(2,'0')}–{String(phase.end).padStart(2,'0')}</p><h2>{phase.label}</h2><span>{phase.detail}</span></div></header>
+    <ol class="week-map" start={phase.start}>{lectures.filter(l=>l.data.week>=phase.start&&l.data.week<=phase.end).map(l=><li class="week-row">
+      <span class="week-number"><small>W</small>{String(l.data.week).padStart(2,'0')}</span>
+      <div class="week-copy"><p class="week-date">{formatCourseDate(l.data.date)}</p><h3><a href={withBase(`/lectures/${l.id}/`)}>{l.data.title}</a></h3><p class="week-question">{String(l.data.question)}</p><p class="week-build"><span>Build</span>{String(l.data.buildOutcome)}</p></div>
+      <div class="week-links"><a href={withBase(`/sessions/${l.id}/`)}>Studio</a><a href={withBase(l.data.slides!)}>Deck <CourseIcon name="arrow" size={17} /></a></div>
+    </li>)}</ol>
+  </section>)}
+</div>

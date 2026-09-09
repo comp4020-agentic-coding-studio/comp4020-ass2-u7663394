@@ -9,6 +9,7 @@ import AssessmentReadiness from "../../components/AssessmentReadiness.astro";
 import MarkingModel from "../../components/MarkingModel.astro";
 import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, siteConfig } from "../../site-config";
+import CourseIcon from "../../components/CourseIcon.astro";
 
 export async function getStaticPaths() {
   const assessments = await getPublishedCollection("assessments");
@@ -36,12 +37,14 @@ const { Content } = await render(assessment);
       </Callout>
     )
   }
-  <p><strong>Due:</strong> {formatCourseDate(assessment.data.due)} · <strong>Weight:</strong> {assessment.data.weight}%</p>
-  <p><strong>Released:</strong> {formatCourseDate(String(assessment.data.release))} · <strong>Due time:</strong> 23:59 Canberra time</p>
-  <h2>Required toolkit</h2>
-  <ul>{(assessment.data.stack as string[]).map((tool) => <li>{tool}</li>)}</ul>
+  <section class="assessment-signal" aria-label="Assessment schedule and weight">
+    <div class="assessment-weight"><span>Course weight</span><strong>{assessment.data.weight}%</strong></div>
+    <dl><div><dt>Released</dt><dd>{formatCourseDate(String(assessment.data.release))}</dd></div><div><dt>Due</dt><dd>{formatCourseDate(assessment.data.due)} · 23:59 Canberra</dd></div></dl>
+    <CourseIcon name="assessment" size={40} />
+  </section>
+  <section class="toolkit" aria-labelledby="toolkit-title"><p class="section-kicker"><CourseIcon name="workbench" size={18} /> Build environment</p><h2 id="toolkit-title">Required toolkit</h2><ul>{(assessment.data.stack as string[]).map((tool) => <li>{tool}</li>)}</ul></section>
   <AssessmentReadiness required={assessment.data.requires as string[]} />
-  <Content />
+  <article class="course-prose"><Content /></article>
   <SpecList spec={assessment.data.spec}>
     The brief poses the problem and leaves room for a response. The spec is the
     fixed part: what a marker checks. Some lines can be checked mechanically;

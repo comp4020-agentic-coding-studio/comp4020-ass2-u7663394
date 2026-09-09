@@ -1,0 +1,16 @@
+---
+import CourseIcon from './CourseIcon.astro';
+import { formatCourseDate } from '../lib/dates';
+const { week, phase, date, slides } = Astro.props as { week: number; phase: string; date: string; slides?: string };
+---
+<section class="week-signal" aria-label={`Week ${week} course position`}>
+  <div class="week-signal-number"><span>Week</span><strong>{String(week).padStart(2, '0')}</strong><small>of 12</small></div>
+  <div class="week-signal-track" aria-hidden="true">
+    {Array.from({ length: 12 }, (_, index) => <i class:list={{ passed: index + 1 <= week, current: index + 1 === week }}></i>)}
+  </div>
+  <div class="week-signal-meta">
+    <span><CourseIcon name="layers" size={18} />{phase}</span>
+    <span><CourseIcon name="calendar" size={18} />{formatCourseDate(date)}</span>
+  </div>
+  {slides && <a class="signal-link" href={slides}>Open lecture deck <CourseIcon name="arrow" size={19} /></a>}
+</section>
