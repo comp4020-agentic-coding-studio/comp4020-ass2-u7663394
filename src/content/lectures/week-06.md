@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Can a reader open this article directly, then recover from a failed request?"
 buildOutcome: "A routed mobile article browser"
 teaches: ["router3", "axios", "vant2", "authentication"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-06/"
 related: ["sessions/week-06", "assessments/assignment-1", "lectures/week-05"]
 ---

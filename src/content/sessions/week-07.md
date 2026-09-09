@@ -3,7 +3,7 @@ title: "One identity and collection store"
 description: "What should happen everywhere when the reader logs out?"
 week: 7
 date: "2027-04-09"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Log in as one fixture user, save an article, log out, then log in as a different user. The second user must not inherit the first collection.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-07"]
 ---

@@ -177,9 +177,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .week-nav a { display: flex; min-height: 4rem; align-items: center; padding: .8rem 1rem; border: 1px solid var(--course-line); border-radius: .25rem; color: var(--course-ink); text-decoration: none; transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .week-nav a:last-child { justify-content: flex-end; text-align: right; }
 .week-nav a:hover { background: var(--course-green-soft); border-color: var(--course-green); transform: translateY(-2px); }
-.teaching-team { margin-top: 3rem; padding: 1.5rem; border-inline-start: .3rem solid var(--at-primary); background: var(--course-gold-soft); }
-.teaching-team h2 { margin: 0 0 .8rem; font-size: 1.1rem; }
-.teaching-team ul { margin: 0; }
+.teaching-team { margin-top: 3rem; padding: 1.35rem 1.5rem; border: 1px solid color-mix(in srgb, var(--at-primary) 42%, var(--course-line)); border-inline-start: .3rem solid var(--at-primary); border-radius: .25rem; background: var(--course-gold-soft); }
+.teaching-team__heading { display: flex; align-items: center; gap: .75rem; color: var(--at-primary); }
+.teaching-team__heading .course-icon { flex: 0 0 auto; }
+.teaching-team__heading p { margin: 0 0 .15rem; color: var(--course-muted); font: 700 .62rem var(--course-mono); letter-spacing: .09em; text-transform: uppercase; }
+.teaching-team__heading h2 { margin: 0; color: var(--course-ink); font-size: 1.15rem; }
+.teaching-team__list { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.teaching-team__person { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: .45rem .7rem; padding: .68rem .8rem; border: 1px solid color-mix(in srgb, var(--at-primary) 20%, var(--course-line)); border-radius: .2rem; background: color-mix(in srgb, var(--at-bg) 65%, var(--course-gold-soft)); }
+.teaching-team__person a { color: var(--course-ink); font: 680 .82rem var(--course-sans); text-decoration: none; }
+.teaching-team__person a:hover { color: var(--course-green); text-decoration: underline; text-underline-offset: .2em; }
+.teaching-team__person span { color: var(--course-muted); font-size: .78rem; }
+.profile-link { display: inline-flex; align-items: center; gap: .35rem; font: 680 .82rem var(--course-sans); }
+.profile-link span { color: var(--course-green); font-size: 1rem; line-height: 1; }
 
 /* Assessments */
 .assessment-list { display: grid; grid-template-columns: 1.08fr .92fr; gap: 1rem; padding: 0; list-style: none; }

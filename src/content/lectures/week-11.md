@@ -8,7 +8,7 @@ phase: "Vue 3 + TypeScript"
 question: "Can the component contract reject an invalid consultation?"
 buildOutcome: "A typed consultation form workflow"
 teaches: ["typed-vue", "vueuse", "vant4", "eslint"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-11/"
 related: ["sessions/week-11", "assessments/assignment-3", "lectures/week-10"]
 ---

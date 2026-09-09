@@ -3,7 +3,7 @@ title: "A typed consultation form workflow"
 description: "Can the component contract reject an invalid consultation?"
 week: 11
 date: "2027-05-07"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Change the emit payload from departmentId to departmentName. Type checking must catch the caller mismatch. Unmount the input before focusing it; the null guard must prevent a crash.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-11"]
 ---

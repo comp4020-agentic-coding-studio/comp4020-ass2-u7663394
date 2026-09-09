@@ -3,7 +3,7 @@ title: "A routed mobile article browser"
 description: "Can a reader open this article directly, then recover from a failed request?"
 week: 6
 date: "2027-04-02"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Paste an article URL into a fresh tab. Try a missing ID, an expired simulated token and a failed next-page request. Retrying must not duplicate articles.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-06"]
 ---

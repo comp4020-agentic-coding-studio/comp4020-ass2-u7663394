@@ -8,7 +8,7 @@ phase: "Vue 3"
 question: "Where does an expired session get handled once?"
 buildOutcome: "An editorial dashboard with one request boundary"
 teaches: ["pinia", "router4", "element-plus", "sass", "request-architecture"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-09/"
 related: ["sessions/week-09", "assessments/assignment-2", "lectures/week-08"]
 ---

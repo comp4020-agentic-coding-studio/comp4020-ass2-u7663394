@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Can a second caller use this component without opening its source?"
 buildOutcome: "A reusable reader UI kit"
 teaches: ["component-interfaces", "less"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-05/"
 related: ["sessions/week-05", "assessments/assignment-1", "lectures/week-04"]
 ---

@@ -3,7 +3,7 @@ title: "A reusable reader UI kit"
 description: "Can a second caller use this component without opening its source?"
 week: 5
 date: "2027-03-26"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Open the modal with the keyboard, close with Escape, and check that focus returns to the trigger. Change the loading flag while a request is pending; the status must remain perceivable.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-05"]
 ---

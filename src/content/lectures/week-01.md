@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Who changes the interface when the state changes?"
 buildOutcome: "A reactive interview profile"
 teaches: ["vue2"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-01/"
 related: ["sessions/week-01", "assessments/assignment-1"]
 ---

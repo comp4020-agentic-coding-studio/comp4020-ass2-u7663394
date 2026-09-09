@@ -1,6 +1,7 @@
 ---
 import { getEntries, type CollectionEntry } from "astro:content";
 import { withBase } from "astro-theme-university/url";
+import CourseIcon from "./CourseIcon.astro";
 
 interface Props {
   teachers: CollectionEntry<"sessions">["data"]["teachers"] | CollectionEntry<"lectures">["data"]["teachers"];
@@ -9,14 +10,30 @@ interface Props {
 const { teachers } = Astro.props;
 // A session or lecture with no `teachers:` renders no team at all.
 const people = teachers ? await getEntries(teachers) : [];
+const roleLabels: Record<string, string> = {
+  convenor: "Course convenor",
+  tutor: "Tutor",
+  guest: "Guest lecturer",
+};
 ---
 
 {
   people.length > 0 && (
     <section class="teaching-team" aria-labelledby="teaching-team">
-      <h2 id="teaching-team">Teaching team</h2>
-      <ul>
-        {people.map((person) => <li><a href={withBase(`/people/${person.id}/`)}>{person.data.title}</a> — {person.data.role}</li>)}
+      <div class="teaching-team__heading">
+        <CourseIcon name="workbench" size={22} />
+        <div>
+          <p>People behind the studio</p>
+          <h2 id="teaching-team">Teaching team</h2>
+        </div>
+      </div>
+      <ul class="teaching-team__list">
+        {people.map((person) => (
+          <li class="teaching-team__person">
+            <a href={withBase(`/people/${person.id}/`)}>{person.data.title}</a>
+            <span>{roleLabels[person.data.role] ?? person.data.role}</span>
+          </li>
+        ))}
       </ul>
     </section>
   )

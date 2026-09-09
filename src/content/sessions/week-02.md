@@ -3,7 +3,7 @@ title: "An editable interview shortlist"
 description: "Why did editing one article change the wrong row?"
 week: 2
 date: "2027-03-05"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Start editing the second row, filter out the first, then save. The same article ID must change. Repeat using only Tab, Space and Enter.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-02"]
 ---

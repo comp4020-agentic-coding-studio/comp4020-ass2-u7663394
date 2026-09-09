@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Why did editing one article change the wrong row?"
 buildOutcome: "An editable interview shortlist"
 teaches: ["forms"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-02/"
 related: ["sessions/week-02", "assessments/assignment-1", "lectures/week-01"]
 ---

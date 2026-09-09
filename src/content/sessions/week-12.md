@@ -3,7 +3,7 @@ title: "A consultation service handover"
 description: "Could another developer safely change this tomorrow?"
 week: 12
 date: "2027-05-14"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Submit twice while a request is pending, then force failure and retry. Confirm one consultation record, an honest status and no phantom receipt. Change a permission in the fixture and retry the forbidden action.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-12"]
 ---

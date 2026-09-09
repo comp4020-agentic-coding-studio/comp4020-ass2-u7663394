@@ -8,7 +8,7 @@ phase: "Vue 3"
 question: "What must stay the same when the implementation changes?"
 buildOutcome: "A behaviour-preserving Vue 3 migration"
 teaches: ["vue3", "composition-api", "vite"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-08/"
 related: ["sessions/week-08", "assessments/assignment-2", "lectures/week-07"]
 ---

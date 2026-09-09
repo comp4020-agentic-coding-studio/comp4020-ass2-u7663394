@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Which component is allowed to change this article?"
 buildOutcome: "A componentised article reader"
 teaches: ["components"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-04/"
 related: ["sessions/week-04", "assessments/assignment-1", "lectures/week-03"]
 ---

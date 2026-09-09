@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "What should happen everywhere when the reader logs out?"
 buildOutcome: "One identity and collection store"
 teaches: ["vuex"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-07/"
 related: ["sessions/week-07", "assessments/assignment-1", "lectures/week-06"]
 ---

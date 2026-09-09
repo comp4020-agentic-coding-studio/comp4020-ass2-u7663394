@@ -8,7 +8,7 @@ phase: "Vue 3 + TypeScript"
 question: "Could another developer safely change this tomorrow?"
 buildOutcome: "A consultation service handover"
 teaches: ["vitest", "happy-dom", "mock-api", "rbac", "svg-sprites"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-12/"
 related: ["sessions/week-12", "assessments/assignment-3", "lectures/week-11"]
 ---

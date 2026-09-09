@@ -3,7 +3,7 @@ title: "A searchable article feed with honest states"
 description: "Should this value be stored, computed or watched?"
 week: 3
 date: "2027-03-12"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Delete an article while a filter is active. Both list and count must update. Throttle a request, change the query twice and explain which response should win.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-03"]
 ---

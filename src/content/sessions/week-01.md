@@ -3,7 +3,7 @@ title: "A reactive interview profile"
 description: "Who changes the interface when the state changes?"
 week: 1
 date: "2027-02-26"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Click Save, then change saved in DevTools. Both routes must produce the same label. If they disagree, find the DOM write that bypasses state.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-01"]
 ---

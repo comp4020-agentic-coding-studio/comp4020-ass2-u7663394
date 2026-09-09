@@ -3,7 +3,7 @@ title: "A componentised article reader"
 description: "Which component is allowed to change this article?"
 week: 4
 date: "2027-03-19"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Render the same card twice. Editing one local draft must not change the other. Make the parent log every committed change; no update may bypass that log.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-04"]
 ---

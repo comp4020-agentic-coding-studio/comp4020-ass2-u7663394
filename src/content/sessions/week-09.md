@@ -3,7 +3,7 @@ title: "An editorial dashboard with one request boundary"
 description: "Where does an expired session get handled once?"
 week: 9
 date: "2027-04-23"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Expire the fixture session while two lists load. Check that the app clears stale identity and offers a coherent recovery path. Delete the last item on a paginated page and check the resulting page index.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-09"]
 ---

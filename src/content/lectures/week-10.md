@@ -8,7 +8,7 @@ phase: "Vue 3 + TypeScript"
 question: "Which impossible state does this JavaScript object allow?"
 buildOutcome: "A typed consultation state model"
 teaches: ["typescript"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-10/"
 related: ["sessions/week-10", "assessments/assignment-3", "lectures/week-09"]
 ---

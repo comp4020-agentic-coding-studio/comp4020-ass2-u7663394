@@ -3,7 +3,7 @@ title: "A typed consultation state model"
 description: "Which impossible state does this JavaScript object allow?"
 week: 10
 date: "2027-04-30"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Try constructing a paid payment without a receipt. The compiler should reject it. Then load malformed JSON: explain why the same type cannot protect that boundary on its own.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-10"]
 ---

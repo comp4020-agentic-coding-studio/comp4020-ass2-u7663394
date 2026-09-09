@@ -3,7 +3,7 @@ title: "A behaviour-preserving Vue 3 migration"
 description: "What must stay the same when the implementation changes?"
 week: 8
 date: "2027-04-16"
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 spec: ["Run the same filter, save and cancel steps in both implementations. A shorter component is not a successful migration if cancel now saves the draft.", "Bring a runnable build and a short note identifying the owner of the state you changed."]
 related: ["lectures/week-08"]
 ---

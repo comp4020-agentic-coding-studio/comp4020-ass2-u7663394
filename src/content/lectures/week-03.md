@@ -8,7 +8,7 @@ phase: "Vue 2"
 question: "Should this value be stored, computed or watched?"
 buildOutcome: "A searchable article feed with honest states"
 teaches: ["derived-state"]
-teachers: ["mara-chen"]
+teachers: ["guochen-wang"]
 slides: "/decks/week-03/"
 related: ["sessions/week-03", "assessments/assignment-1", "lectures/week-02"]
 ---
