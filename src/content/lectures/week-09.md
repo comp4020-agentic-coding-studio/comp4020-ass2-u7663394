@@ -1,6 +1,7 @@
 ---
 title: "Vue 3 Application Architecture"
 description: "The editor opens two management pages and receives two different error messages for the same expired session. Token injection, redirects and loading flags have spread into every component."
+flow: ["Views ask for intent", "Pinia owns identity", "Axios owns request policy"]
 week: 9
 date: "2027-04-19"
 phase: "Vue 3"

@@ -1,6 +1,7 @@
 ---
 title: "Directives, Events and Forms"
 description: "A student edits an interview title, then filters the list. The draft appears beside a different article. The list looks tidy, but the interface has lost the identity of the thing being edited."
+flow: ["Article ID", "Editable draft", "Submit or cancel"]
 week: 2
 date: "2027-03-01"
 phase: "Vue 2"

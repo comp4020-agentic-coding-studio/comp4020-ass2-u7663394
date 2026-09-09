@@ -575,3 +575,6 @@ These rules implement IDEA.md, rather than treating the course as a list of APIs
 - Body copy uses Times New Roman; headings use the existing sans serif and code uses a monospace stack. Slop gold and marks stay intact; Vue green is an accent.
 - Use native button click activation for ordinary controls. The older pointerdown rule above applies to timing-sensitive widgets only; do not suppress keyboard activation on navigation or disclosure controls.
 - Preserve factual development notes as work happens. PROCESS.md is the student's own account: never invent a rejection, experiment, personal motivation or approval that did not occur.
+
+- Assessment readiness is visible to students through `AssessmentReadiness.astro`, using the same metadata tested in `spec/curriculum.test.ts`. The test also carries an independent required-tool inventory so deleting metadata cannot manufacture a pass.
+- Deck controls sit outside Reveal’s scaled canvas. Phone slides use a readable portrait surface; verify all slides after changing deck CSS. A compiled landscape slide is not evidence of mobile readability.

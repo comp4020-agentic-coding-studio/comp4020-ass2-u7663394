@@ -1,6 +1,7 @@
 ---
 title: "Components and Data Flow"
 description: "Search, profile, article cards and save handlers share one large file. Every change can reach every variable. Extracting files alone will not fix that: a child that mutates its prop preserves the same hidden coupling."
+flow: ["ReaderPage owns articles", "ArticleCard receives props", "save(id) returns to owner"]
 week: 4
 date: "2027-03-15"
 phase: "Vue 2"

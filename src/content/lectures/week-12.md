@@ -1,6 +1,7 @@
 ---
 title: "Production Vue"
 description: "The happy path works. A double click creates two consultations, a slow response overwrites a newer screen, and a hidden action can still be called directly. The handover is where those assumptions become visible."
+flow: ["State transition", "Adverse scenario", "Evidence for the next maintainer"]
 week: 12
 date: "2027-05-10"
 phase: "Vue 3 + TypeScript"

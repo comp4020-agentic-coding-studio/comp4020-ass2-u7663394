@@ -1,6 +1,7 @@
 ---
 title: "Moving to Vue 3"
 description: "A rewrite can remove old bugs and quietly introduce new ones. The team wants Composition API; readers still want their saved articles. Make an acceptance contract before comparing syntax."
+flow: ["Vue 2 reference", "Same behaviour contract", "Vue 3 implementation"]
 week: 8
 date: "2027-04-12"
 phase: "Vue 3"
@@ -44,6 +45,20 @@ const visible = computed(() =>
 ```
 
 This is a focused excerpt, not a complete application. Put it in the context described in the studio and inspect its behaviour.
+
+## Compare the same contract
+
+In the reader's Vue 2 component, `data()` returns the stored query and `computed` derives the list. In Vue 3, the query is a ref and the derived list is still computed. The caller should observe the same filtering behaviour in both versions.
+
+| Responsibility | Vue 2 reader | Vue 3 editorial desk |
+| --- | --- | --- |
+| Stored query | `data() { return { query: '' } }` | `const query = ref('')` |
+| Derived list | `computed: { visible() { … } }` | `const visible = computed(() => …)` |
+| Default input contract | `value` / `input` | `modelValue` / `update:modelValue` |
+| DOM after mounting | `mounted()` | `onMounted()` |
+| Subscription cleanup | `beforeDestroy()` | `onUnmounted()` |
+
+Do not migrate by searching and replacing `this`. Identify the lifetime and owner of each value first. Preserve the stable article IDs and the cancel behaviour established in week 2.
 
 ## Build: A behaviour-preserving Vue 3 migration
 

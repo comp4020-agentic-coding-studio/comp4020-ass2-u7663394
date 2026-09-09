@@ -1,6 +1,7 @@
 ---
 title: "Component Interfaces and Reusable UI"
 description: "A modal works only on the profile page because it reaches into that parent through $refs. A loading spinner blocks clicks but says nothing to a keyboard user. Reuse exposes contracts that the first caller never had to name."
+flow: ["Caller supplies content", "Slots define openings", "Component owns structure"]
 week: 5
 date: "2027-03-22"
 phase: "Vue 2"

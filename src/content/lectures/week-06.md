@@ -1,6 +1,7 @@
 ---
 title: "Routing, APIs and Mobile Applications"
 description: "The feed works until someone shares a URL, refreshes a detail page or loses their connection. A successful click-through demo has concealed three application-level failures."
+flow: ["URL identifies article", "Router selects page", "Request layer loads data"]
 week: 6
 date: "2027-03-29"
 phase: "Vue 2"

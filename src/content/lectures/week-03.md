@@ -1,6 +1,7 @@
 ---
 title: "Derived State and Application Timing"
 description: "The feed stores both articles and filteredArticles. Removing an article updates only one array. Meanwhile, an old search response arrives after a newer one and silently replaces it."
+flow: ["Stored articles + query", "Computed visible articles", "Rendered list + count"]
 week: 3
 date: "2027-03-08"
 phase: "Vue 2"

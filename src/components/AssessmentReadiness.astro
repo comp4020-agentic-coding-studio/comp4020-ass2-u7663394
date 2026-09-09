@@ -1,0 +1,8 @@
+---
+import { getPublishedCollection } from 'astro-course-university/content';
+import { withBase } from 'astro-theme-university/url';
+const { required } = Astro.props as { required: string[] };
+const lectures = (await getPublishedCollection('lectures')).sort((a,b)=>a.data.week-b.data.week);
+const teaching = lectures.filter(l => required.some(tool => (l.data.teaches as string[]).includes(tool)));
+---
+<aside class="readiness" aria-labelledby="readiness-title"><h2 id="readiness-title">Taught before you submit</h2><ul>{teaching.map(l=><li><a href={withBase(`/lectures/${l.id}/`)}>Week {l.data.week}: {l.data.title}</a><span> — {required.filter(tool=>(l.data.teaches as string[]).includes(tool)).join(', ')}</span></li>)}</ul><p>Start when the brief opens; add each boundary after its lecture and studio. Every required tool is taught before the deadline.</p></aside>

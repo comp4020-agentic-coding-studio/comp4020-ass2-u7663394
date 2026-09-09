@@ -5,6 +5,7 @@ import RelatedContent from "astro-course-university/components/RelatedContent.as
 import SpecList from "astro-course-university/components/SpecList.astro";
 import Callout from "astro-theme-university/components/Callout.astro";
 import ContentLayout from "../../layouts/CourseLayout.astro";
+import AssessmentReadiness from "../../components/AssessmentReadiness.astro";
 import MarkingModel from "../../components/MarkingModel.astro";
 import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, siteConfig } from "../../site-config";
@@ -39,6 +40,7 @@ const { Content } = await render(assessment);
   <p><strong>Released:</strong> {formatCourseDate(String(assessment.data.release))} · <strong>Due time:</strong> 23:59 Canberra time</p>
   <h2>Required toolkit</h2>
   <ul>{(assessment.data.stack as string[]).map((tool) => <li>{tool}</li>)}</ul>
+  <AssessmentReadiness required={assessment.data.requires as string[]} />
   <Content />
   <SpecList spec={assessment.data.spec}>
     The brief poses the problem and leaves room for a response. The spec is the

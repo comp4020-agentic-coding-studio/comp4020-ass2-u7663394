@@ -1,6 +1,7 @@
 ---
 title: "Shared State with Vuex"
 description: "The header still displays a name after the account page logs out. The saved list has another copy of the user. Three correct components have produced one inconsistent application."
+flow: ["Action performs request", "Mutation records result", "All subscribers update"]
 week: 7
 date: "2027-04-05"
 phase: "Vue 2"

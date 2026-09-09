@@ -1,6 +1,7 @@
 ---
 title: "Thinking in Vue"
 description: "The inherited careers site changes button labels with querySelector. Its saved flag says one thing; the screen says another. Before adding features, replace those competing instructions with one state model."
+flow: ["User activates Save", "saved changes", "Vue updates the label"]
 week: 1
 date: "2027-02-22"
 phase: "Vue 2"

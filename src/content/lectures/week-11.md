@@ -1,6 +1,7 @@
 ---
 title: "Vue 3 with TypeScript"
 description: "The department selector emits a display label while the request layer expects an ID. JavaScript accepts the handoff; the next screen loses its selection. Type the seam where two components disagree."
+flow: ["Typed form event", "Consultation store", "Validated request boundary"]
 week: 11
 date: "2027-05-03"
 phase: "Vue 3 + TypeScript"
@@ -28,6 +29,7 @@ Use script setup with lang="ts", typed props and typed emits. Let inference do u
 - Typed Pinia stores and Axios responses
 - Shared interfaces and .d.ts declarations
 - VueUse and Vant for Vue 3
+- ESLint configuration and type-aware review
 
 ## Read the boundary
 

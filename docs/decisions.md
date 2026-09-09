@@ -42,3 +42,8 @@ The first new test run exposed a test-path bug: resolving a root-relative deck p
 The optional template-tooling run failed four tests after the mandated removal of starter images. Those tests copied their fixtures from published `src/` paths. The original bytes now live under `scripts/fixtures/starter-images/`, and the tests read those immutable fixtures. The production evidence checker and its hashes are unchanged; the tests still prove that each original image is rejected.
 
 The first homepage browser review found a dark caption on the dark architecture diagram. The theme's figure-caption colour overrode inheritance. An explicit inherited colour fixed that scoped contrast issue.
+
+## Implementation checkpoints
+
+- `3b9859d`: first complete curriculum and site. The existing red spec required all twelve weeks before a green checkpoint was possible; this makes the foundation larger than later focused changes. All 16 original assertions passed, as did the build sensors. The optional 40-test tooling suite and evidence gate also passed after separating immutable test images from authored artwork.
+- The next checkpoint exposes assessment readiness in the page as well as the API, adds independent curriculum inventories and tests the downloadable fixture behaviour. No test treats unique metadata as proof of teaching quality.

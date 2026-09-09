@@ -1,6 +1,7 @@
 ---
 title: "TypeScript for Vue Developers"
 description: "The new service can hold paid: true and paymentFailed: true at once. Both are valid booleans. Neither explains what the interface should show. A larger domain needs a model with fewer contradictory states."
+flow: ["Unknown input", "Runtime check", "Typed domain state"]
 week: 10
 date: "2027-04-26"
 phase: "Vue 3 + TypeScript"
