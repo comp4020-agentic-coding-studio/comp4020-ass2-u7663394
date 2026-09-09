@@ -47,3 +47,13 @@ The first homepage browser review found a dark caption on the dark architecture 
 
 - `3b9859d`: first complete curriculum and site. The existing red spec required all twelve weeks before a green checkpoint was possible; this makes the foundation larger than later focused changes. All 16 original assertions passed, as did the build sensors. The optional 40-test tooling suite and evidence gate also passed after separating immutable test images from authored artwork.
 - The next checkpoint exposes assessment readiness in the page as well as the API, adds independent curriculum inventories and tests the downloadable fixture behaviour. No test treats unique metadata as proof of teaching quality.
+
+## Deeper deck review
+
+Both production page sweeps covered 48 content/deck URLs at 390×844 and 1920×1080 with no page overflow or console errors. The preview homepage bytes matched `dist/index.html`. The repo is still private and the Pages API returned 404; no publication is claimed.
+
+The slide-by-slide pass found a real 10px phone overflow: a 100%-width `pre` still used content-box sizing, so its padding pushed its right edge to 399.6px on a 390px viewport. Border-box sizing fixes the box without hiding the content; code remains independently scrollable and focusable. The font was raised to 14.4px on phones.
+
+A focused Next button did not advance on Space because Reveal's document shortcut consumed native activation. A scoped propagation guard preserves the browser's default Space/Enter behaviour while preventing the presentation shortcut from handling the same key. This is narrower than disabling keyboard shortcuts globally.
+
+The initial audit also read before `hashchange` completed and reported a stale counter. Manual inspection showed the final counter and disabled state were correct. The audit now waits for both the counter and the actual present slide before measuring; its geometry threshold remains the fixed viewport.

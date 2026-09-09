@@ -40,7 +40,7 @@ export const slopCourseMetaSchema = z
 
 // The single source of truth for the course record. The generated homepage,
 // navigation label and /api/index.json all read this object.
-// Replace every placeholder value, but keep the shape: the catalogue ingests
+// Keep the record shape: the catalogue ingests
 // this API contract when the course is published.
 //
 // The code's last three digits were assigned to this repo when it was

@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "name": "Mobile menu opens",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu navigates to schedule",
+      "pass": true
+    },
+    {
+      "name": "Production search finds architecture lecture",
+      "pass": true
+    },
+    {
+      "name": "No-JS reading: home",
+      "pass": true,
+      "text": 1646,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: lectures/week-02/",
+      "pass": true,
+      "text": 2586,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: lectures/week-06/",
+      "pass": true,
+      "text": 3089,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: lectures/week-09/",
+      "pass": true,
+      "text": 3127,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: lectures/week-12/",
+      "pass": true,
+      "text": 3294,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: assessments/assignment-2/",
+      "pass": true,
+      "text": 4306,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "No-JS reading: policies/",
+      "pass": true,
+      "text": 3156,
+      "opacity": "1",
+      "width": 390
+    },
+    {
+      "name": "Dark theme toggles",
+      "pass": true
+    },
+    {
+      "name": "Resize preserves current slide",
+      "pass": true
+    }
+  ],
+  "browser": "152.0.7977.83"
+}

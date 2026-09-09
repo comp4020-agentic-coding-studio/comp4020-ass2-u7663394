@@ -39,9 +39,12 @@ A student edits an interview title, then filters the list. The draft appears bes
 
 ```html
 <form @submit.prevent="saveDraft">
-  <label for="title">Article title</label>
-  <input id="title" v-model.trim="draft.title">
-  <button type="submit">Save title</button>
+  <label for="title">
+    Article title
+  </label>
+  <input id="title"
+    v-model.trim="draft.title">
+  <button type="submit">Save</button>
 </form>
 ```
 

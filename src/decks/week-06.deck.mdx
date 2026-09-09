@@ -39,11 +39,14 @@ The feed works until someone shares a URL, refreshes a detail page or loses thei
 
 ```js
 const routes = [
-  { path: '/articles/:id', name: 'article',
+  { path: '/articles/:id',
+    name: 'article',
     component: ArticlePage },
-  { path: '/account', component: AccountPage,
+  { path: '/account',
+    component: AccountPage,
     meta: { requiresAuth: true } },
-  { path: '*', component: NotFoundPage }
+  { path: '*',
+    component: NotFoundPage }
 ]
 ```
 

@@ -81,6 +81,7 @@ describe('assessment readiness', () => {
       const teaching=lectures.filter(l=>list(l.meta.teaches).includes(tool));
       expect(teaching.length,`${a.id}: no teaching for ${tool}`).toBeGreaterThan(0);
       const first=teaching[0];
+      expect(day(first.meta.date),`${a.id}: ${tool} lecture occurs too late`).toBeLessThan(day(a.meta.due));
       const studio=studios.find(s=>s.meta.week===first.meta.week)!;
       expect(day(studio.meta.date),`${a.id}: ${tool} studio occurs too late`).toBeLessThan(day(a.meta.due));
     }

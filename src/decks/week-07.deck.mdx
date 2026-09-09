@@ -42,10 +42,14 @@ const account = {
   namespaced: true,
   state: () => ({ user: null }),
   mutations: {
-    setUser(state, user) { state.user = user }
+    setUser(state, user) {
+      state.user = user
+    }
   },
   actions: {
-    logout({ commit }) { commit('setUser', null) }
+    logout({ commit }) {
+      commit('setUser', null)
+    }
   }
 }
 ```

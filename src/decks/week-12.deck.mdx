@@ -40,9 +40,9 @@ The happy path works. A double click creates two consultations, a slow response 
 ```ts
 import { expect, test } from 'vitest'
 
-test('a completed consultation cannot reopen', () => {
-  const state = { status: 'completed' }
-  expect(() => transition(state, 'start'))
+test('completed cannot reopen', () => {
+  const s = { status: 'completed' }
+  expect(() => transition(s, 'start'))
     .toThrow('Invalid transition')
 })
 ```

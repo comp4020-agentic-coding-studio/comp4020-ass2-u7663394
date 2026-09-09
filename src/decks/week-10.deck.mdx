@@ -40,13 +40,15 @@ The new service can hold paid: true and paymentFailed: true at once. Both are va
 ```ts
 type Payment =
   | { status: 'pending' }
-  | { status: 'paid'; receiptId: string }
-  | { status: 'failed'; reason: string }
+  | { status: 'paid';
+      receiptId: string }
+  | { status: 'failed';
+      reason: string }
 
-function message(payment: Payment): string {
-  if (payment.status === 'paid')
-    return payment.receiptId
-  return payment.status
+function message(p: Payment): string {
+  if (p.status === 'paid')
+    return p.receiptId
+  return p.status
 }
 ```
 

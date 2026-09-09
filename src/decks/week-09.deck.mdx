@@ -39,11 +39,12 @@ The editor opens two management pages and receives two different error messages 
 
 ```js
 import { storeToRefs } from 'pinia'
-import { useAccountStore } from './stores/account'
+import { useAccountStore }
+  from './stores/account'
 
 const account = useAccountStore()
 const { user } = storeToRefs(account)
-// Keep actions attached to their store.
+// Actions stay on the store.
 await account.restoreSession()
 ```
 

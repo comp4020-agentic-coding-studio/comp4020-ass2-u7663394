@@ -31,5 +31,5 @@ export const siteConfig = defineSiteConfig({
 
   licence: "CC-BY-NC-SA-4.0",
   socialImage: "/src/assets/images/course-card.png",
-  socialImageAlt: `A preview card for ${courseMeta.code}: ${courseMeta.title}`,
+  socialImageAlt: `${courseMeta.code}: ${courseMeta.title}. Gold Slop University lettering and the Vue 2 to Vue 3 to TypeScript progression on dark green.`,
 });

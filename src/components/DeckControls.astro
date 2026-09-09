@@ -5,13 +5,23 @@ const { week } = Astro.props;
 <nav class="deck-controls" aria-label="Slide navigation" data-deck-controls>
   <a href={withBase(`/lectures/week-${String(week).padStart(2,'0')}/`)}>← Lecture</a>
   <span class="deck-position" aria-live="polite">Slide 1</span>
-  <button type="button" data-slide-previous aria-label="Previous slide">←</button>
-  <button type="button" data-slide-next aria-label="Next slide">→</button>
+  <button type="button" data-slide-previous data-core-interaction="previous-slide" aria-label="Previous slide">←</button>
+  <button type="button" data-slide-next data-core-interaction="next-slide" aria-label="Next slide">→</button>
 </nav>
 <script>
   const controls = document.querySelector<HTMLElement>('[data-deck-controls]');
   if (controls) {
     document.body.append(controls);
+    document.querySelector('.slides')?.setAttribute('data-core-output', 'slides');
+    document.querySelectorAll('pre').forEach(pre => {
+      pre.tabIndex = 0;
+      pre.setAttribute('aria-label', 'Code example');
+    });
+    // Reveal's document-level keyboard shortcuts must not consume a native
+    // button activation. Keep the browser default; stop only propagation.
+    controls.addEventListener('keydown', event => {
+      if (event.key === ' ' || event.key === 'Enter') event.stopPropagation();
+    });
     const previous = controls.querySelector<HTMLButtonElement>('[data-slide-previous]')!;
     const next = controls.querySelector<HTMLButtonElement>('[data-slide-next]')!;
     const position = controls.querySelector<HTMLElement>('.deck-position')!;

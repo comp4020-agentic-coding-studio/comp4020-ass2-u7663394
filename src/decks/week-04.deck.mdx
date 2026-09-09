@@ -38,14 +38,17 @@ Search, profile, article cards and save handlers share one large file. Every cha
 ## Read this seam
 
 ```js
-// ArticleCard.vue: Vue 2 options
+// Vue 2: ArticleCard options
 export default {
   props: {
-    article: { type: Object, required: true }
+    article: {
+      type: Object, required: true
+    }
   },
   methods: {
     requestSave() {
-      this.$emit('save', this.article.id)
+      this.$emit('save',
+        this.article.id)
     }
   }
 }

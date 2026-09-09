@@ -40,9 +40,9 @@ The feed stores both articles and filteredArticles. Removing an article updates 
 ```js
 computed: {
   visibleArticles() {
-    const query = this.query.toLowerCase()
-    return this.articles.filter(article =>
-      article.title.toLowerCase().includes(query)
+    const q = this.query.toLowerCase()
+    return this.articles.filter(a =>
+      a.title.toLowerCase().includes(q)
     )
   }
 }

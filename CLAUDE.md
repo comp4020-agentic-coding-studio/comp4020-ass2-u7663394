@@ -578,3 +578,5 @@ These rules implement IDEA.md, rather than treating the course as a list of APIs
 
 - Assessment readiness is visible to students through `AssessmentReadiness.astro`, using the same metadata tested in `spec/curriculum.test.ts`. The test also carries an independent required-tool inventory so deleting metadata cannot manufacture a pass.
 - Deck controls sit outside Reveal’s scaled canvas. Phone slides use a readable portrait surface; verify all slides after changing deck CSS. A compiled landscape slide is not evidence of mobile readability.
+
+- A deck button’s Space/Enter belongs to native activation, not Reveal’s document shortcut. Stop propagation within the toolbar, preserve the default, and assert one slide advance per key press. A hash mutation alone is not a settled slide; wait for its visible section and counter before measuring.

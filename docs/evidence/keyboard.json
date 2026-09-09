@@ -1,0 +1,19 @@
+{
+  "geometry": {
+    "section": 390,
+    "box": 390,
+    "pre": {
+      "x": 22.3984375,
+      "y": 156.7109375,
+      "width": 345.203125,
+      "height": 180.40625,
+      "top": 156.7109375,
+      "right": 367.6015625,
+      "bottom": 337.1171875,
+      "left": 22.3984375
+    },
+    "preBox": "border-box"
+  },
+  "afterSpace": "Slide 5 of 7",
+  "afterEnter": "Slide 6 of 7"
+}
