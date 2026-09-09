@@ -1,0 +1,72 @@
+---
+title: "Moving to Vue 3"
+description: "What must stay the same when the implementation changes?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={8} />
+
+# Moving to Vue 3
+
+Week 08 · Vue 3
+
+What must stay the same when the implementation changes?
+
+---
+
+## The fault on the desk
+
+A rewrite can remove old bugs and quietly introduce new ones. The team wants Composition API; readers still want their saved articles. Make an acceptance contract before comparing syntax.
+
+---
+
+## Follow the ownership
+
+**Vue 2 reference**
+
+↓
+
+**Same behaviour contract**
+
+↓
+
+**Vue 3 implementation**
+
+---
+
+## Read this seam
+
+```js
+import { ref, computed } from 'vue'
+
+const query = ref('')
+const articles = ref([])
+const visible = computed(() =>
+  articles.value.filter(article =>
+    article.title.includes(query.value)
+  )
+)
+```
+
+---
+
+## Make the failure visible
+
+Run the same filter, save and cancel steps in both implementations. A shorter component is not a successful migration if cancel now saves the draft.
+
+---
+
+## Keep / change
+
+Compare Vue 2 data/computed/methods with refs/computed/functions. Replace value/input with modelValue/update:modelValue for default component v-model. Replace .sync with a named v-model; retire the instance event bus.
+
+---
+
+## Leave with evidence
+
+**A behaviour-preserving Vue 3 migration**
+
+Review the migration ledger: unchanged behaviour, changed API, removed dependency. Explain one reason to keep Options API in an incremental migration.
+
+[Full lecture and studio](/lectures/week-08/)

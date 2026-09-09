@@ -1,26 +1,8 @@
 ---
-import { getPublishedCollection } from "astro-course-university/content";
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
-import { formatCourseDate } from "../lib/dates";
-
-const assessments = await getPublishedCollection("assessments");
-const visible = assessments.sort((a, b) => a.data.week - b.data.week);
+import { getPublishedCollection } from 'astro-course-university/content';
+import { withBase } from 'astro-theme-university/url';
+import { formatCourseDate } from '../lib/dates';
+const assessments = (await getPublishedCollection('assessments')).sort((a,b)=>a.data.week-b.data.week);
 ---
-
-<CardGrid columns={2}>
-  {
-    visible.map((assessment) => (
-      <Card headingLevel="h2" title={assessment.data.title} href={`/assessments/${assessment.id}/`}>
-        {assessment.data.description && <p>{assessment.data.description}</p>}
-        {assessment.data.weight != null && (
-          <p>
-            <small>
-              Due {formatCourseDate(assessment.data.due)} · Weight: {assessment.data.weight}%{assessment.data.draft && " · Draft"}
-            </small>
-          </p>
-        )}
-      </Card>
-    ))
-  }
-</CardGrid>
+<ul class="assessment-list">{assessments.map(a=><li class="assessment-row"><strong class="weight">{a.data.weight}%</strong><div><h2><a href={withBase(`/assessments/${a.id}/`)}>{a.data.title}</a></h2><p>{a.data.description}</p><div class="course-meta"><span>Released {formatCourseDate(String(a.data.release))}</span><span>Due {formatCourseDate(a.data.due)} · 23:59 Canberra</span></div></div></li>)}</ul>
+<p><strong>Total: {assessments.reduce((sum,a)=>sum+a.data.weight,0)}%.</strong> Studios provide formative practice; they add no separate assessment weight.</p>

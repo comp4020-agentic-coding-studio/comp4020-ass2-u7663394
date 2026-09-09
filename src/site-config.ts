@@ -5,8 +5,8 @@ import { courseMeta } from "./course-config";
 // The underlying collection and URL remain `sessions`; these labels are the
 // language students see. Change them to Studios, Tutorials, Expeditions, etc.
 export const sessionLabels = {
-  singular: "Session",
-  plural: "Sessions",
+  singular: "Studio",
+  plural: "Studios",
 } as const;
 
 export const graphCollections = ["sessions", "assessments", "lectures", "people"];
@@ -21,14 +21,15 @@ export const siteConfig = defineSiteConfig({
   name: "Slop University",
 
   links: [
-    { text: "Lectures", href: "/lectures/" },
+    { text: "The course", href: "/course/" },
+    { text: "Twelve weeks", href: "/lectures/" },
     { text: sessionLabels.plural, href: "/sessions/" },
     { text: "Assessment", href: "/assessments/" },
-    { text: "People", href: "/people/" },
+    { text: "Resources", href: "/resources/" },
     { text: "Policies", href: "/policies/" },
   ],
 
   licence: "CC-BY-NC-SA-4.0",
-  socialImage: "/src/assets/images/card.png",
+  socialImage: "/src/assets/images/course-card.png",
   socialImageAlt: `A preview card for ${courseMeta.code}: ${courseMeta.title}`,
 });

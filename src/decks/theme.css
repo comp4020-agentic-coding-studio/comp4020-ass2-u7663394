@@ -11,3 +11,28 @@
  * slide class you reach for (`_class: quote`), a code-heavy layout, a
  * background. */
 @import url("astro-theme-university/styles/deck.css");
+
+/* Keep the presentation engine; adapt the authored reading surface and add
+   touch-sized controls outside Reveal's scaled slide canvas. */
+:root { --r-main-font: 'Times New Roman', Times, serif; }
+.reveal .slides section h1 { background: none; color: var(--at-primary); padding: 0; text-transform: none; font-weight: 600; line-height: 1.1; }
+.reveal .slides section code { font-size: 1.1rem; }
+.deck-controls { position:fixed; inset:0 0 auto; z-index:1000; display:flex; gap:.6rem; align-items:center; padding:.55rem 1rem; background:var(--at-dark-grey); color:var(--at-light-grey); border-bottom:1px solid var(--at-divider); font:14px var(--font-public-sans),sans-serif; }
+.deck-controls a { color:var(--at-light-grey); text-decoration:underline; text-underline-offset:4px; }
+.deck-position { margin-left:auto; }
+.deck-controls button { min-width:44px; min-height:44px; border:1px solid var(--at-primary); background:transparent; color:var(--at-light-grey); font-size:22px; cursor:pointer; }
+.deck-controls button:disabled { opacity:.35; cursor:default; }
+.deck-controls :focus-visible { outline:3px solid var(--at-primary); outline-offset:3px; }
+@media (width < 700px) {
+ .reveal { overflow:hidden; }
+ .reveal .slides { position:absolute!important; top:70px!important; left:0!important; width:100%!important; height:calc(100dvh - 76px)!important; margin:0!important; transform:none!important; }
+ .reveal .slides > section { width:100%!important; height:100%!important; padding:1.4rem!important; overflow-y:auto!important; box-sizing:border-box; }
+ .reveal .slides section h1 { font-size:2rem; }
+ .reveal .slides section h2 { font-size:1.6rem; margin-bottom:1.2rem; }
+ .reveal .slides section p,.reveal .slides section li { font-size:1.2rem; line-height:1.5; }
+ .reveal .slides section pre { width:100%; max-width:100%; font-size:.8rem; overflow:auto; }
+ .reveal .slides section code { font-size:.78rem; line-height:1.6; }
+ .reveal .slides section pre code { max-height:none; padding:.5rem; }
+ .deck-controls { padding:.45rem .7rem; gap:.5rem; font-size:12px; }
+}
+@media print { .deck-controls { display:none; } }

@@ -1,0 +1,70 @@
+---
+title: "Routing, APIs and Mobile Applications"
+description: "Can a reader open this article directly, then recover from a failed request?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={6} />
+
+# Routing, APIs and Mobile Applications
+
+Week 06 · Vue 2
+
+Can a reader open this article directly, then recover from a failed request?
+
+---
+
+## The fault on the desk
+
+The feed works until someone shares a URL, refreshes a detail page or loses their connection. A successful click-through demo has concealed three application-level failures.
+
+---
+
+## Follow the ownership
+
+**URL identifies article**
+
+↓
+
+**Router selects page**
+
+↓
+
+**Request layer loads data**
+
+---
+
+## Read this seam
+
+```js
+const routes = [
+  { path: '/articles/:id', name: 'article',
+    component: ArticlePage },
+  { path: '/account', component: AccountPage,
+    meta: { requiresAuth: true } },
+  { path: '*', component: NotFoundPage }
+]
+```
+
+---
+
+## Make the failure visible
+
+Paste an article URL into a fresh tab. Try a missing ID, an expired simulated token and a failed next-page request. Retrying must not duplicate articles.
+
+---
+
+## Keep / change
+
+The request boundary should survive the migration. Components ask for an article; they should not each know where headers and tokens live.
+
+---
+
+## Leave with evidence
+
+**A routed mobile article browser**
+
+Integrate Vant 2 List with a loading flag reset in finally. Start with a 375px design and check 390px and desktop; use flexible widths and rem units rather than fixed pixel scaling.
+
+[Full lecture and studio](/lectures/week-06/)

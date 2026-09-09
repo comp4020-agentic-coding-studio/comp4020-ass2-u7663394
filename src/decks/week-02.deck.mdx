@@ -1,0 +1,68 @@
+---
+title: "Directives, Events and Forms"
+description: "Why did editing one article change the wrong row?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={2} />
+
+# Directives, Events and Forms
+
+Week 02 · Vue 2
+
+Why did editing one article change the wrong row?
+
+---
+
+## The fault on the desk
+
+A student edits an interview title, then filters the list. The draft appears beside a different article. The list looks tidy, but the interface has lost the identity of the thing being edited.
+
+---
+
+## Follow the ownership
+
+**Article ID**
+
+↓
+
+**Editable draft**
+
+↓
+
+**Submit or cancel**
+
+---
+
+## Read this seam
+
+```html
+<form @submit.prevent="saveDraft">
+  <label for="title">Article title</label>
+  <input id="title" v-model.trim="draft.title">
+  <button type="submit">Save title</button>
+</form>
+```
+
+---
+
+## Make the failure visible
+
+Start editing the second row, filter out the first, then save. The same article ID must change. Repeat using only Tab, Space and Enter.
+
+---
+
+## Keep / change
+
+Stable identity survives a framework upgrade. A green screen with the wrong record underneath is still a failed migration.
+
+---
+
+## Leave with evidence
+
+**An editable interview shortlist**
+
+Deliberately use the index as a key, reproduce the editing fault, then restore stable IDs and write down the difference.
+
+[Full lecture and studio](/lectures/week-02/)

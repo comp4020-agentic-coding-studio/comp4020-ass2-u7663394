@@ -1,0 +1,71 @@
+---
+title: "Vue 3 with TypeScript"
+description: "Can the component contract reject an invalid consultation?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={11} />
+
+# Vue 3 with TypeScript
+
+Week 11 · Vue 3 + TypeScript
+
+Can the component contract reject an invalid consultation?
+
+---
+
+## The fault on the desk
+
+The department selector emits a display label while the request layer expects an ID. JavaScript accepts the handoff; the next screen loses its selection. Type the seam where two components disagree.
+
+---
+
+## Follow the ownership
+
+**Typed form event**
+
+↓
+
+**Consultation store**
+
+↓
+
+**Validated request boundary**
+
+---
+
+## Read this seam
+
+```ts
+interface ConsultationDraft {
+  departmentId: string
+  description: string
+}
+const emit = defineEmits<{
+  submit: [draft: ConsultationDraft]
+}>()
+const description = ref('')
+```
+
+---
+
+## Make the failure visible
+
+Change the emit payload from departmentId to departmentName. Type checking must catch the caller mismatch. Unmount the input before focusing it; the null guard must prevent a crash.
+
+---
+
+## Keep / change
+
+Vue 2 prop validators checked broad runtime shapes. Typed props now check callers at development time. Neither replaces validation of user input or untrusted responses.
+
+---
+
+## Leave with evidence
+
+**A typed consultation form workflow**
+
+Review every assertion, any and optional field. Remove shortcuts that conceal a missing domain decision, then run typecheck and ESLint.
+
+[Full lecture and studio](/lectures/week-11/)

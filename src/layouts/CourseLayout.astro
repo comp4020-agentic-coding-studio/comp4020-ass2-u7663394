@@ -1,0 +1,7 @@
+---
+import ContentLayout from 'astro-theme-university/layouts/ContentLayout.astro';
+import type { ContentLayoutProps } from 'astro-theme-university/layouts/ContentLayout.astro';
+import '../styles/course.css';
+type Props = ContentLayoutProps;
+---
+<ContentLayout {...Astro.props}><slot /></ContentLayout>

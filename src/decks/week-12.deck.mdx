@@ -1,0 +1,70 @@
+---
+title: "Production Vue"
+description: "Could another developer safely change this tomorrow?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={12} />
+
+# Production Vue
+
+Week 12 · Vue 3 + TypeScript
+
+Could another developer safely change this tomorrow?
+
+---
+
+## The fault on the desk
+
+The happy path works. A double click creates two consultations, a slow response overwrites a newer screen, and a hidden action can still be called directly. The handover is where those assumptions become visible.
+
+---
+
+## Follow the ownership
+
+**State transition**
+
+↓
+
+**Adverse scenario**
+
+↓
+
+**Evidence for the next maintainer**
+
+---
+
+## Read this seam
+
+```ts
+import { expect, test } from 'vitest'
+
+test('a completed consultation cannot reopen', () => {
+  const state = { status: 'completed' }
+  expect(() => transition(state, 'start'))
+    .toThrow('Invalid transition')
+})
+```
+
+---
+
+## Make the failure visible
+
+Submit twice while a request is pending, then force failure and retry. Confirm one consultation record, an honest status and no phantom receipt. Change a permission in the fixture and retry the forbidden action.
+
+---
+
+## Keep / change
+
+The semester began with a saved flag and ends with state transitions someone else can verify. The common skill is choosing where truth lives and testing the boundary that changes it.
+
+---
+
+## Leave with evidence
+
+**A consultation service handover**
+
+Exchange repositories. A partner follows the README from a clean checkout, changes one rule, runs the tests and reports the first undocumented assumption.
+
+[Full lecture and studio](/lectures/week-12/)

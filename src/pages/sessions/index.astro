@@ -1,5 +1,5 @@
 ---
-import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
+import ContentLayout from "../../layouts/CourseLayout.astro";
 import SessionsGrid from "../../components/SessionsGrid.astro";
 import { sessionLabels, siteConfig } from "../../site-config";
 ---
@@ -9,10 +9,6 @@ import { sessionLabels, siteConfig } from "../../site-config";
   description={`The twelve-week teaching schedule: what happens in each ${sessionLabels.singular.toLowerCase()}, what to prepare, and what leaves the room.`}
   {...siteConfig}
 >
-  <p>
-    The internal collection and URL stay <code>sessions</code>. Set the visible
-    singular and plural names once in <code>src/site-config.ts</code> and use
-    the language your course deserves everywhere readers see it.
-  </p>
+  <p>Friday is the handover bench: reproduce a fault, build the next boundary and ask another developer to challenge it. Each studio follows that week's Monday lecture.</p>
   <SessionsGrid />
 </ContentLayout>

@@ -1,68 +1,36 @@
 ---
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
-import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
-import heroImage from "../assets/images/hero-home.avif";
-import { courseMeta } from "../course-config";
-import { sessionLabels, siteConfig } from "../site-config";
-
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
+import BaseLayout from 'astro-theme-university/layouts/BaseLayout.astro';
+import { withBase } from 'astro-theme-university/url';
+import { courseMeta } from '../course-config';
+import { siteConfig } from '../site-config';
+import { formatCourseDate } from '../lib/dates';
+import '../styles/course.css';
 ---
-
-<ContentLayout
-  title={`${courseMeta.code}: ${courseMeta.title}`}
-  description={courseMeta.description}
-  heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
-  {...siteConfig}
->
-  <ul class="course-tags" aria-label="Course tags">
-    {courseMeta.tags.map((tag) => <li>{tag}</li>)}
-  </ul>
-
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
-  <h2>What you will do</h2>
-  <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
-  </p>
-
-  <h2>Who it is for</h2>
-  <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
-  </p>
-
-  <h2>Where to go next</h2>
-  <CardGrid columns={2}>
-    <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
-    </Card>
-    <Card title="Assessment" href="/assessments/">
-      <p>What is marked, what it is worth, and when it is due.</p>
-    </Card>
-    <Card title="People" href="/people/">
-      <p>Who teaches the course and how to reach them.</p>
-    </Card>
-  </CardGrid>
-</ContentLayout>
-
-<style>
-  .course-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-block: 0 2rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .course-tags li {
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    color: var(--at-text-secondary);
-    background: var(--at-bg-alt);
-    font-size: 0.9rem;
-  }
-</style>
+<BaseLayout title={`${courseMeta.code}: ${courseMeta.title}`} description={courseMeta.description} {...siteConfig}>
+  <div class="course-meta"><span>{courseMeta.code} · Undergraduate level {courseMeta.level}</span><span>{courseMeta.session} · {courseMeta.year}</span><span>{formatCourseDate(courseMeta.startDate)} — {formatCourseDate(courseMeta.endDate)}</span></div>
+  <section class="course-intro" aria-labelledby="course-title">
+    <div>
+      <p class="eyebrow">Frontend maintenance studio</p>
+      <h1 id="course-title">{courseMeta.title.split(':')[0]}</h1>
+      <p class="lead">{courseMeta.title.split(':')[1]?.trim()}</p>
+      <p>You inherited the frontend.<br />Now make it worth inheriting.</p>
+      <div class="course-actions"><a class="course-action" href={withBase('/lectures/')}>Explore the twelve weeks <span aria-hidden="true">↗</span></a><a class="course-action secondary" href={withBase('/course/')}>Is this for me?</a></div>
+    </div>
+    <figure class="architecture">
+      <figcaption>One question, three applications</figcaption>
+      <div class="boundary"><strong>01 / The reader</strong><small>Vue 2<br />Who owns state?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
+      <div class="boundary"><strong>02 / The editorial desk</strong><small>Vue 3<br />What survives migration?</small></div><span class="flow-arrow" aria-hidden="true">↓</span>
+      <div class="boundary"><strong>03 / The consultation</strong><small>Vue 3 + TS<br />What makes change safe?</small></div>
+      <p class="diagram-note">Components → shared boundaries → typed contracts.<br />The application grows. The ownership must stay legible.</p>
+    </figure>
+  </section>
+  <section aria-labelledby="semester-title">
+    <p class="eyebrow">The semester, at a glance</p><h2 id="semester-title">Every new layer earns its place.</h2>
+    <ol class="phase-list">
+      <li><span class="phase-label">Weeks 01–07</span><div><h3>Inherit the reader.</h3><p>Vue 2 · Router · Vuex</p></div><p>A saved flag becomes a mobile article app. Learn reactivity, component contracts and where shared state belongs.</p></li>
+      <li><span class="phase-label">Weeks 08–09</span><div><h3>Move the architecture.</h3><p>Vue 3 · Composition API · Pinia</p></div><p>Keep the behaviour, change the boundaries. Build the editorial desk for the same publication.</p></li>
+      <li><span class="phase-label">Weeks 10–12</span><div><h3>Make change safer.</h3><p>TypeScript · Typed Vue · Tests</p></div><p>Transfer the architecture to a fictional consultation service. Model impossible states, failure and the handover.</p></li>
+    </ol>
+  </section>
+  <section aria-labelledby="entry-title"><h2 id="entry-title">Bring JavaScript. Leave a handover.</h2><p>{courseMeta.description}</p><p>Expect a weekly build, a concrete failure to diagnose and a review with another developer. Vue 2 is studied as an archived maintenance environment; the course deliberately moves into modern Vue.</p><div class="course-actions"><a class="course-action" href={withBase('/assessments/')}>See the three project briefs <span aria-hidden="true">→</span></a><a href={withBase('/resources/')}>Open the workbench</a></div></section>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+title: "Derived State and Application Timing"
+description: "Should this value be stored, computed or watched?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={3} />
+
+# Derived State and Application Timing
+
+Week 03 · Vue 2
+
+Should this value be stored, computed or watched?
+
+---
+
+## The fault on the desk
+
+The feed stores both articles and filteredArticles. Removing an article updates only one array. Meanwhile, an old search response arrives after a newer one and silently replaces it.
+
+---
+
+## Follow the ownership
+
+**Stored articles + query**
+
+↓
+
+**Computed visible articles**
+
+↓
+
+**Rendered list + count**
+
+---
+
+## Read this seam
+
+```js
+computed: {
+  visibleArticles() {
+    const query = this.query.toLowerCase()
+    return this.articles.filter(article =>
+      article.title.toLowerCase().includes(query)
+    )
+  }
+}
+```
+
+---
+
+## Make the failure visible
+
+Delete an article while a filter is active. Both list and count must update. Throttle a request, change the query twice and explain which response should win.
+
+---
+
+## Keep / change
+
+Derived state reduces the number of facts that can disagree. That becomes more valuable when a store is shared across routes.
+
+---
+
+## Leave with evidence
+
+**A searchable article feed with honest states**
+
+Draw the lifecycle timeline. Focus the search field after mounting and remove any timers when leaving the page.
+
+[Full lecture and studio](/lectures/week-03/)

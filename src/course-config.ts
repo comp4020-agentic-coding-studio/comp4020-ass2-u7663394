@@ -46,17 +46,15 @@ export const slopCourseMetaSchema = z
 // The code's last three digits were assigned to this repo when it was
 // provisioned, and no other course in the cohort has them. Change the first
 // digit to your course's level (and `level` to match); keep the other three.
-// STARTER_CONTENT: replace this course record, then remove this comment.
 export const courseMeta = slopCourseMetaSchema.parse({
-  code: "SLOP1797",
-  title: "Course Title Goes Here",
+  code: "SLOP2797",
+  title: "Vue in the Wild: From Legacy Vue 2 to Typed Vue 3 Service Apps",
   session: "Semester 1",
   year: 2027,
-  level: 1,
+  level: 2,
   startDate: "2027-02-22",
   endDate: "2027-05-28",
   description:
-    "One concise paragraph explaining what this course is, who it is for, " +
-    "and why somebody would choose to spend a semester taking it.",
-  tags: ["replace me"],
+    "Inherit a Vue 2 article app, rebuild its editorial desk in Vue 3, then carry the architecture into a typed consultation service. A frontend maintenance studio for developers who already know HTML, CSS and JavaScript.",
+  tags: ["Vue", "Frontend architecture", "TypeScript"],
 }) satisfies CourseMetaInput;

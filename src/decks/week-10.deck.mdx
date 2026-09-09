@@ -1,0 +1,73 @@
+---
+title: "TypeScript for Vue Developers"
+description: "Which impossible state does this JavaScript object allow?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={10} />
+
+# TypeScript for Vue Developers
+
+Week 10 · Vue 3 + TypeScript
+
+Which impossible state does this JavaScript object allow?
+
+---
+
+## The fault on the desk
+
+The new service can hold paid: true and paymentFailed: true at once. Both are valid booleans. Neither explains what the interface should show. A larger domain needs a model with fewer contradictory states.
+
+---
+
+## Follow the ownership
+
+**Unknown input**
+
+↓
+
+**Runtime check**
+
+↓
+
+**Typed domain state**
+
+---
+
+## Read this seam
+
+```ts
+type Payment =
+  | { status: 'pending' }
+  | { status: 'paid'; receiptId: string }
+  | { status: 'failed'; reason: string }
+
+function message(payment: Payment): string {
+  if (payment.status === 'paid')
+    return payment.receiptId
+  return payment.status
+}
+```
+
+---
+
+## Make the failure visible
+
+Try constructing a paid payment without a receipt. The compiler should reject it. Then load malformed JSON: explain why the same type cannot protect that boundary on its own.
+
+---
+
+## Keep / change
+
+Keep the week 9 request architecture; add an explicit domain contract. Types are a new way to expose assumptions, not a reason to rebuild every component.
+
+---
+
+## Leave with evidence
+
+**A typed consultation state model**
+
+Prepare the capstone model and configure ESLint with the Vue / TypeScript tooling. Keep Assignment 2 JavaScript; submit its architecture evidence after this studio.
+
+[Full lecture and studio](/lectures/week-10/)

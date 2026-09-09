@@ -212,12 +212,12 @@ describe("check:evidence", () => {
 
   // Every image the starter ships is gated, not just the home page's, so a
   // submission can't keep a starter portrait while replacing the prose beside
-  // it. Copied from the working tree, so a re-cut image updates the hash in
-  // check-evidence.ts and this test together or fails here first.
+  // it. Immutable fixtures keep testing the original hashes after a student
+  // replaces or removes the published artwork, as the assignment requires.
   it.each(STARTER_IMAGES)("rejects the unchanged starter %s", (image) => {
     const cwd = assignment2Fixture(false);
     mkdirSync(join(cwd, dirname(image)), { recursive: true });
-    copyFileSync(resolve(image), join(cwd, image));
+    copyFileSync(resolve("scripts/fixtures/starter-images", image.split("/").at(-1)!), join(cwd, image));
     const result = spawnSync(process.execPath, [script], {
       cwd,
       env,

@@ -1,48 +1,72 @@
 ---
-title: Opening lecture
-description: The placeholder deck — replace it with a real deck for your course
+title: "Thinking in Vue"
+description: "Who changes the interface when the state changes?"
 ---
 
-# Opening lecture
+import DeckControls from "../components/DeckControls.astro";
 
-{/* STARTER_CONTENT: replace this deck, then remove this comment. */}
+<DeckControls week={1} />
 
-Replace this deck. It is here to show that slides are part of the site, built
-from the same markdown as everything else.
+# Thinking in Vue
 
----
+Week 01 · Vue 2
 
-## Slides are markdown
-
-A `---` starts a new slide. Everything else is ordinary markdown: headings,
-lists, links, tables, images, fenced code.
-
-- one idea per slide
-- the fewest words that carry it
-- the deck is a performance artefact, so it can say things a page wouldn't
+Who changes the interface when the state changes?
 
 ---
 
-{/* _class: impact */}
+## The fault on the desk
 
-# A slide class
-
-`{/* _class: impact */}` fills the slide with the brand colour. `quote`,
-`banner` and `centered` are the others the theme styles.
+The inherited careers site changes button labels with querySelector. Its saved flag says one thing; the screen says another. Before adding features, replace those competing instructions with one state model.
 
 ---
 
-## What else is here
+## Follow the ownership
 
-```sh
-pnpm dev
-pnpm check
+**User activates Save**
+
+↓
+
+**saved changes**
+
+↓
+
+**Vue updates the label**
+
+---
+
+## Read this seam
+
+```js
+new Vue({
+  el: '#app',
+  data: { saved: false },
+  methods: {
+    toggleSaved() {
+      this.saved = !this.saved
+    }
+  }
+})
 ```
 
-The second command proves the deck compiles with the rest of the site. Use the
-first to inspect every slide at the desktop and phone marking viewports; slide
-fit and legibility are visual judgements.
+---
 
-The [astromotion](https://github.com/ANUcybernetics/astromotion) README has the
-rest of the syntax: speaker notes, backgrounds, QR codes, fragments, and
-components hydrated per slide.
+## Make the failure visible
+
+Click Save, then change saved in DevTools. Both routes must produce the same label. If they disagree, find the DOM write that bypasses state.
+
+---
+
+## Keep / change
+
+Keep the observable behaviour; replace the mechanism. This is the same bargain you will make during the Vue 3 migration.
+
+---
+
+## Leave with evidence
+
+**A reactive interview profile**
+
+Compare v-if and v-show by inspecting the removed or hidden element. Record when retaining local input state matters.
+
+[Full lecture and studio](/lectures/week-01/)

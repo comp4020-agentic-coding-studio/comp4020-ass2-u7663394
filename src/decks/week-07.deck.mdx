@@ -1,0 +1,73 @@
+---
+title: "Shared State with Vuex"
+description: "What should happen everywhere when the reader logs out?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={7} />
+
+# Shared State with Vuex
+
+Week 07 · Vue 2
+
+What should happen everywhere when the reader logs out?
+
+---
+
+## The fault on the desk
+
+The header still displays a name after the account page logs out. The saved list has another copy of the user. Three correct components have produced one inconsistent application.
+
+---
+
+## Follow the ownership
+
+**Action performs request**
+
+↓
+
+**Mutation records result**
+
+↓
+
+**All subscribers update**
+
+---
+
+## Read this seam
+
+```js
+const account = {
+  namespaced: true,
+  state: () => ({ user: null }),
+  mutations: {
+    setUser(state, user) { state.user = user }
+  },
+  actions: {
+    logout({ commit }) { commit('setUser', null) }
+  }
+}
+```
+
+---
+
+## Make the failure visible
+
+Log in as one fixture user, save an article, log out, then log in as a different user. The second user must not inherit the first collection.
+
+---
+
+## Keep / change
+
+Record what Vuex buys: one mutation path and observable shared state. In week 9 compare that responsibility with Pinia, not just the number of lines.
+
+---
+
+## Leave with evidence
+
+**One identity and collection store**
+
+Run the full reader acceptance journey and hand over the repository with a setup guide and one known limitation.
+
+[Full lecture and studio](/lectures/week-07/)

@@ -1,0 +1,70 @@
+---
+title: "Vue 3 Application Architecture"
+description: "Where does an expired session get handled once?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={9} />
+
+# Vue 3 Application Architecture
+
+Week 09 · Vue 3
+
+Where does an expired session get handled once?
+
+---
+
+## The fault on the desk
+
+The editor opens two management pages and receives two different error messages for the same expired session. Token injection, redirects and loading flags have spread into every component.
+
+---
+
+## Follow the ownership
+
+**Views ask for intent**
+
+↓
+
+**Pinia owns identity**
+
+↓
+
+**Axios owns request policy**
+
+---
+
+## Read this seam
+
+```js
+import { storeToRefs } from 'pinia'
+import { useAccountStore } from './stores/account'
+
+const account = useAccountStore()
+const { user } = storeToRefs(account)
+// Keep actions attached to their store.
+await account.restoreSession()
+```
+
+---
+
+## Make the failure visible
+
+Expire the fixture session while two lists load. Check that the app clears stale identity and offers a coherent recovery path. Delete the last item on a paginated page and check the resulting page index.
+
+---
+
+## Keep / change
+
+Vuex mutations disappear from the Pinia API; ownership does not. Explain which module responsibility became which store, and why a form draft stayed local.
+
+---
+
+## Leave with evidence
+
+**An editorial dashboard with one request boundary**
+
+Implement profile, avatar preview and password reset as fixture-backed flows. Exercise empty lists, cancellation and failed saves before adding polish.
+
+[Full lecture and studio](/lectures/week-09/)

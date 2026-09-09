@@ -1,0 +1,68 @@
+{
+  "fictional": true,
+  "accounts": [
+    {
+      "id": "reader-1",
+      "name": "Alex Example",
+      "role": "reader"
+    },
+    {
+      "id": "editor-1",
+      "name": "Sam Example",
+      "role": "editor"
+    }
+  ],
+  "channels": [
+    {
+      "id": "practice",
+      "name": "Interview practice"
+    },
+    {
+      "id": "career",
+      "name": "Career changes"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-1",
+      "channelId": "practice",
+      "title": "The question I asked back",
+      "body": "An invented interview reflection for interface testing.",
+      "publishedAt": "2027-02-20"
+    },
+    {
+      "id": "article-2",
+      "channelId": "career",
+      "title": "Explaining a project handover",
+      "body": "A fictional account of describing an ownership boundary.",
+      "publishedAt": "2027-02-21"
+    },
+    {
+      "id": "article-3",
+      "channelId": "practice",
+      "title": "When the demo failed",
+      "body": "An invented reflection on recovering from an unexpected result.",
+      "publishedAt": "2027-02-22"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "doctor-1",
+      "name": "Dr Example",
+      "departmentId": "general"
+    }
+  ],
+  "consultations": [
+    {
+      "id": "consult-1",
+      "patientId": "patient-example",
+      "status": "completed"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1",
+      "status": "pending"
+    }
+  ]
+}

@@ -558,3 +558,20 @@ Note what the platform now does for me: the theme optimises images at build time
 (`imageFormat: "avif"`), so a large source image is fine — the build emitted
 `hero-home` at 302kB down to 20kB. Hand-optimising before importing is wasted
 work and loses the responsive variants.
+
+
+## Vue in the Wild: course-specific contract
+
+These rules implement IDEA.md, rather than treating the course as a list of APIs.
+
+- Carry one question through the semester: who owns a piece of application state, and what evidence makes changing it safe? The interview article reader becomes an editorial dashboard; the consultation service tests transfer to a more demanding domain.
+- Keep weeks 1–7 in Vue 2, week 8 as an explicit migration comparison, week 9 in Vue 3 JavaScript, and weeks 10–12 in TypeScript and typed Vue. Vue 2 is an archived maintenance exercise, not a recommendation for a new production system.
+- Every week needs a distinct learning question, build outcome and concrete failure to diagnose. Repeated headings support navigation; repeated reasoning does not constitute a curriculum.
+- Declare taught technologies and assessment requirements as structured metadata, render them for students, and check readiness against actual dates. A technology taught on the due date is too late. Include supporting tools such as Less, Sass, Vant and ESLint.
+- Preserve the starter's 2027 teaching window. Twelve consecutive Monday lectures begin on its start date; Friday studios follow. The period after the last studio is capstone completion time, not extra teaching weeks.
+- Use three practical assessments weighted 30, 35 and 35. The second is JavaScript: TypeScript must not become an implicit marking criterion. No exam.
+- The consultation application is a frontend simulation: invented patients, inert medicine catalogues and simulated payment states. Do not promise a backend or a live service that this repository does not provide.
+- Keep required work distinct from optional exploration. ECharts is enrichment; state, request failures, accessibility and tests are the capstone's core.
+- Body copy uses Times New Roman; headings use the existing sans serif and code uses a monospace stack. Slop gold and marks stay intact; Vue green is an accent.
+- Use native button click activation for ordinary controls. The older pointerdown rule above applies to timing-sensitive widgets only; do not suppress keyboard activation on navigation or disclosure controls.
+- Preserve factual development notes as work happens. PROCESS.md is the student's own account: never invent a rejection, experiment, personal motivation or approval that did not occur.

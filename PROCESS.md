@@ -1,53 +1,15 @@
 # Process overview
 
-<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
-     in it with your own overview, and delete this comment — `pnpm
-     check:evidence` will remind you if it's still here. -->
+*Agent-assisted working account for the student to revise in their own voice before submission. It records observed work; it does not claim personal acceptance or a completed deployment.*
 
-Written by you, for a reader: how you got from the brief to the harness and
-agentic workflow behind this submission. Markers read this file and follow its
-citations; they don't trawl the repo for evidence you didn't point at.
+The course begins with a frontend that already has a history. The original idea of teaching Vue was refined in `IDEA.md` into a progression from a legacy reader to a modern editorial desk and then a typed service application. That narrower direction is present in the student's idea record ([40feed1](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u7663394/commit/40feed1)). It provides a reason for the semester to exist beyond covering framework APIs: each project asks where application truth belongs as the consequences of changing it grow.
 
-This file is the shape; the course site's
-[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
-is the requirement, and its
-[word counts](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#word-counts)
-cover every deliverable.
+Two course examples helped sharpen the implementation approach. Calling Bullshit's syllabus carries a recurring judgement through different subjects; How to Make Almost Anything connects weekly making to cumulative capability. Here, each week therefore begins with a concrete failure: an edited row changes identity, a stale request wins, or logout leaves another copy of the user behind. The useful unit of progression is the boundary a student can explain and repair, rather than the number of APIs introduced.
 
-## What I built
+The Vue 2 → Vue 3 → TypeScript sequence creates a comparison that a modern-only tutorial would lose. Students first experience the ownership problems that Vuex and component contracts solve. Migration then has a behaviour to preserve, and Pinia can be compared by responsibility rather than syntax length. The consultation domain introduces contradictory states that motivate types and tests. Vue 2 is explicitly an archived maintenance exercise; simulated consultation and payment avoid promising a live service that the course does not supply.
 
-One paragraph: the thing, and the idea behind it.
+The existing harness already required tests against built output, with Assignment 2's initial contract committed before the course existed ([c8c610d](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-u7663394/commit/c8c610d)). The baseline run confirmed four failing assertions, including missing weeks and insufficient deck content. Completing the curriculum turned those original assertions green. The working harness now names stable course rules: preserve the three phases, give each week a distinct build and failure, and teach every required tool before its assessment. Supporting tools matter too; Less, Sass and ESLint cannot disappear from the teaching plan while remaining compulsory in a brief.
 
-## How I got here
+The implementation also keeps a deliberate boundary around automation. Dates, weights, tool dependencies and real links can be checked. A unique build title cannot prove that its lesson is worth taking. That requires reading the actual weeks and asking whether their decisions accumulate. Likewise, compiled slides do not establish phone legibility. The first browser inspection found a caption contrast issue despite a clean build, reinforcing the need to inspect rendered output.
 
-The account of the process: how the work actually went, and how you knew the
-result was right. Tell it in whatever order makes it clear. A weekly prototype
-needs a paragraph or two; an assignment needs more.
-
-Cite the record as you go, as links whose text is the commit hash or range and
-whose target is this repo's commit or compare URL, so a reader clicks straight
-to the evidence:
-
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
-
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
-
-> the prompt, verbatim
-
-Screenshots are welcome where one carries the point better than a sentence does.
-Commit the file to this repo and link it with a **relative** path, which is what
-makes it render on GitHub: `![alt text](docs/before.png)`. Images don't count
-towards the word count and don't replace the citation.
-
-## Before you ship
-
-`pnpm check:evidence` verifies that this comment is gone, that your citations
-resolve to real commits, that a crit week's reflection entry is in
-`reflections/`, and that your `CLAUDE.md` is there. It checks that your account
-is traceable, not that it is good: that is the marker's call.
-
-Images aren't checked: unlike a citation whose SHA doesn't resolve, a broken
-image is visible the moment this file is rendered on GitHub.
+The detailed working record in `docs/decisions.md` preserves sources, experiments and failures while development continues. The remaining personal account should explain which outputs the student accepted or rejected and why, using the subsequent implementation and verification commits as evidence. A public deployment and the final prospective-student walkthrough must be reported only after they have actually been verified.

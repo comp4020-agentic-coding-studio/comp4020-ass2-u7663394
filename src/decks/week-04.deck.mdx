@@ -1,0 +1,74 @@
+---
+title: "Components and Data Flow"
+description: "Which component is allowed to change this article?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={4} />
+
+# Components and Data Flow
+
+Week 04 · Vue 2
+
+Which component is allowed to change this article?
+
+---
+
+## The fault on the desk
+
+Search, profile, article cards and save handlers share one large file. Every change can reach every variable. Extracting files alone will not fix that: a child that mutates its prop preserves the same hidden coupling.
+
+---
+
+## Follow the ownership
+
+**ReaderPage owns articles**
+
+↓
+
+**ArticleCard receives props**
+
+↓
+
+**save(id) returns to owner**
+
+---
+
+## Read this seam
+
+```js
+// ArticleCard.vue: Vue 2 options
+export default {
+  props: {
+    article: { type: Object, required: true }
+  },
+  methods: {
+    requestSave() {
+      this.$emit('save', this.article.id)
+    }
+  }
+}
+```
+
+---
+
+## Make the failure visible
+
+Render the same card twice. Editing one local draft must not change the other. Make the parent log every committed change; no update may bypass that log.
+
+---
+
+## Keep / change
+
+A useful component boundary is an ownership boundary. Vue 3 changes declaration syntax, but props down and intent up still explain the application.
+
+---
+
+## Leave with evidence
+
+**A componentised article reader**
+
+Ask a partner to reuse ArticleCard without reading its implementation. Fix any dependency they had to discover by accident.
+
+[Full lecture and studio](/lectures/week-04/)

@@ -1,0 +1,68 @@
+---
+title: "Component Interfaces and Reusable UI"
+description: "Can a second caller use this component without opening its source?"
+---
+
+import DeckControls from "../components/DeckControls.astro";
+
+<DeckControls week={5} />
+
+# Component Interfaces and Reusable UI
+
+Week 05 · Vue 2
+
+Can a second caller use this component without opening its source?
+
+---
+
+## The fault on the desk
+
+A modal works only on the profile page because it reaches into that parent through $refs. A loading spinner blocks clicks but says nothing to a keyboard user. Reuse exposes contracts that the first caller never had to name.
+
+---
+
+## Follow the ownership
+
+**Caller supplies content**
+
+↓
+
+**Slots define openings**
+
+↓
+
+**Component owns structure**
+
+---
+
+## Read this seam
+
+```html
+<label>
+  Search articles
+  <input :value="value"
+    @input="$emit('input', $event.target.value)">
+</label>
+```
+
+---
+
+## Make the failure visible
+
+Open the modal with the keyboard, close with Escape, and check that focus returns to the trigger. Change the loading flag while a request is pending; the status must remain perceivable.
+
+---
+
+## Keep / change
+
+Legacy-only: .sync and instance event-bus APIs do not carry unchanged into Vue 3. Enduring: explicit events, slots and state ownership. Make a migration ledger with those two columns.
+
+---
+
+## Leave with evidence
+
+**A reusable reader UI kit**
+
+Use one Less spacing variable, inspect the compiled CSS and document the value / input contract. Compare .sync with an explicit update event.
+
+[Full lecture and studio](/lectures/week-05/)

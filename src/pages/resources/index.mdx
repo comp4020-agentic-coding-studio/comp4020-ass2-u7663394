@@ -1,0 +1,67 @@
+---
+title: "The workbench"
+description: "Version-aware references, local fixtures and the small contracts shared by the three projects."
+---
+
+# The workbench
+
+## Keep the generations separate
+
+| Work | Framework and tools | Read here |
+| --- | --- | --- |
+| Reader | Vue 2.7, Router 3, Vuex 3, Vant 2, Axios, Less | [Vue 2 guide](https://v2.vuejs.org/v2/guide/) · [Router 3](https://v3.router.vuejs.org/guide/) · [Vuex 3](https://v3.vuex.vuejs.org/guide/) |
+| Editorial desk | Vue 3, Vite, Router 4, Pinia, Element Plus, Axios, Sass | [Vue introduction](https://vuejs.org/guide/introduction.html) · [Pinia](https://pinia.vuejs.org/core-concepts/) · [Element Plus](https://element-plus.org/en-US/) |
+| Consultation | Vue 3 + TypeScript, Vant 4, VueUse, Vitest, happy-dom, ESLint | [Typed Vue](https://vuejs.org/guide/typescript/composition-api.html) · [Vitest](https://vitest.dev/guide/) · [VueUse](https://vueuse.org/) |
+
+These are compatibility families, not a floating instruction to install every package at its latest version. Commit the resolved lockfile. Vue 2 is archived: use its matching Router, Vuex and Vant generations. For Vue 3, create-vue offers a Vite-based project and TypeScript / ESLint options; select JavaScript for the dashboard, TypeScript for the consultation service.
+
+Use the [official Vue 2 installation guide](https://v2.vuejs.org/v2/guide/installation.html) for the initial browser-based exercises and its [SFC tooling guide](https://v2.vuejs.org/v2/guide/single-file-components.html) when extracting components. The [Vue 3 quick start](https://vuejs.org/guide/quick-start.html) owns current installation instructions. Keep the two projects in separate folders so that dependency versions cannot silently cross the migration boundary.
+
+## Fixture material you can use now
+
+[Download the article and consultation fixtures](/fixtures/course-data.json). The JSON contains invented article records, channels, accounts, doctors and consultation states. It is source material, not a running backend. Copy it into your application and implement a local request adapter; backend development is not part of the assessment.
+
+[Download a deterministic request adapter](/fixtures/request-fixture.js). This dependency-free module demonstrates delay, forced 401, failure and empty results through the same asynchronous boundary. Use it while sketching, then put the adapter behind your Axios request layer. Extend its small contract for your project’s operations rather than claiming these sample endpoints constitute a complete service.
+
+## Shared article model
+
+```ts
+interface Article {
+  id: string
+  channelId: string
+  title: string
+  body: string
+  publishedAt: string
+}
+```
+
+The reader and editorial desk share article IDs and channel IDs. A saved collection stores IDs, not a second copy of every article. Recommended and latest feeds can sort the same fixture differently. Registration and account updates should alter your local fixture state; avatar upload can store a local preview, and password reset can simulate a success or failure response.
+
+## Request contract
+
+Use a result envelope containing a business code and data. A transport error, an expired session and a successful empty list are three different outcomes. Choose a stable error shape once in the request layer.
+
+```json
+{ "code": "OK", "data": { "items": [], "nextPage": null } }
+```
+
+For the consultation project, model department, doctor, patient, consultation, message and order IDs separately. Validate fixture input before treating it as a typed record. A paid order has a simulated receipt ID; a failed order has an explanation and no receipt.
+
+## Reproducible scenarios
+
+| Scenario | Deliberate input | Expected observation |
+| --- | --- | --- |
+| slow | Delay the response | Pending state remains visible; duplicate submit is blocked |
+| empty | Return no records | An explanation appears, not an endless spinner |
+| unauthorised | Reject with status 401 | Clear stale identity and offer login |
+| failure | Reject the next request | Keep recoverable input and offer retry |
+| success | Return the normal fixture | Commit one result, then clear pending state |
+
+Write the selected scenario in the README so a reviewer can repeat it. Use fake timers for deterministic unit tests and a browser for actual focus, scrolling and layout.
+
+## Migration reference
+
+[Vue 3 breaking changes](https://v3-migration.vuejs.org/breaking-changes/) is the checklist for API differences. [Vue 2 end-of-life information](https://v2.vuejs.org/eol/) explains why the reader is a maintenance exercise. [TypeScript narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) helps turn unknown inputs into a model you can reason about.
+
+Do not read every linked manual cover to cover. Each [weekly lecture](/lectures/) names the concepts needed for its build.
+

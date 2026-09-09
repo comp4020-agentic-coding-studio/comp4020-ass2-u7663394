@@ -1,20 +1,8 @@
 ---
-import { getPublishedCollection } from "astro-course-university/content";
-import Card from "astro-theme-university/components/Card.astro";
-import CardGrid from "astro-theme-university/components/CardGrid.astro";
-import { formatCourseDate } from "../lib/dates";
-
-const lectures = await getPublishedCollection("lectures");
-const visible = lectures.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+import { getPublishedCollection } from 'astro-course-university/content';
+import { withBase } from 'astro-theme-university/url';
+import { formatCourseDate } from '../lib/dates';
+const lectures = (await getPublishedCollection('lectures')).sort((a,b)=>a.data.week-b.data.week);
+const phases = [{label:'01 / Inherit', detail:'Vue 2 · Own the state before adding another layer.', start:1,end:7},{label:'02 / Migrate',detail:'Vue 3 · Preserve behaviour, reorganise responsibility.',start:8,end:9},{label:'03 / Type and verify',detail:'Vue 3 + TypeScript · Make assumptions explicit.',start:10,end:12}];
 ---
-
-<CardGrid columns={2}>
-  {
-    visible.map((lecture) => (
-      <Card headingLevel="h2" title={lecture.data.title} href={`/lectures/${lecture.id}/`}>
-        {lecture.data.description && <p>{lecture.data.description}</p>}
-        <p><small>Week {lecture.data.week} · {formatCourseDate(lecture.data.date)}</small></p>
-      </Card>
-    ))
-  }
-</CardGrid>
+{phases.map(phase => <section aria-label={phase.label}><div class="phase-heading"><h2>{phase.label}</h2><p>{phase.detail}</p></div><ol class="week-map" start={phase.start}>{lectures.filter(l=>l.data.week>=phase.start&&l.data.week<=phase.end).map(l=><li class="week-row"><span class="week-number">{String(l.data.week).padStart(2,'0')}</span><div><h2><a href={withBase(`/lectures/${l.id}/`)}>{l.data.title}</a></h2><p>{String(l.data.question)}</p><div class="course-meta"><span>{formatCourseDate(l.data.date)}</span><span>{String(l.data.buildOutcome)}</span></div></div><div class="week-links"><a href={withBase(`/sessions/${l.id}/`)}>Studio</a><a href={withBase(l.data.slides!)}>Slides ↗</a></div></li>)}</ol></section>)}
