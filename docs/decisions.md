@@ -57,3 +57,9 @@ The slide-by-slide pass found a real 10px phone overflow: a 100%-width `pre` sti
 A focused Next button did not advance on Space because Reveal's document shortcut consumed native activation. A scoped propagation guard preserves the browser's default Space/Enter behaviour while preventing the presentation shortcut from handling the same key. This is narrower than disabling keyboard shortcuts globally.
 
 The initial audit also read before `hashchange` completed and reported a stale counter. Manual inspection showed the final counter and disabled state were correct. The audit now waits for both the counter and the actual present slide before measuring; its geometry threshold remains the fixed viewport.
+
+## Final local verification
+
+The final course has 49 built pages, 12 lectures, 12 studios, 12 seven-slide decks and 3 assessments weighted 30/35/35. `pnpm check` passes 26 assertions after typecheck and the build sensors. `pnpm test:template` passes 40 assertions. `pnpm check:evidence` passes. The final code-slide formatting pass checked all 24 affected viewport combinations without overflow.
+
+Local commits: `3b9859d` (foundation), `9ff9de8` (readiness), `58687a8` (browser findings and deck fixes). PROCESS.md cites those records and remains labelled as an agent-assisted draft for the student's own revision. Publication was not performed: repository instructions reserve pushing for the student.
